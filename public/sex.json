@@ -1,0 +1,67 @@
+[
+    {
+      "image": "https://ibb.co/VVphss4",
+      "title": "Modern Apartment with City View",
+      "location": "123 Main Street, Mirpur-6 Dhaka",
+      "price": 250000,
+      "status": "For Sale",
+      "type": "Apartment"
+    },
+    {
+      "image": "https://ibb.co/rddH3j6",
+      "title": "Spacious Family House",
+      "location": "425 Avenue, Mirpur-14, Dhaka ",
+      "price": 350000,
+      "status": "For Sale",
+      "type": "House"
+    },
+    {
+      "image": "https://ibb.co/CnJB1My",
+      "title": "Modern Apartment in Suburbia",
+      "location": "456 Oak Avenue, Dhanmondi 32, Dhaka",
+      "price": 350000,
+      "status": "For Sale",
+      "type": "Apartment"
+    },
+    {
+      "image": "https://ibb.co/SJ3vyvc",
+      "title": "Spacious House with Garden",
+      "location": "160 Visa Park, Hazi Ali Road, Chittagong",
+      "price": 350000,
+      "status": "For Sale",
+      "type": "House"
+    },
+    {
+      "image": "https://ibb.co/HTKhksB",
+      "title": "Cozy Studio near Downtown",
+      "location": "789 Elm Street, Gulshan, Dhaka",
+      "price": 1200,
+      "status": "For Rent",
+      "type": "Duplex"
+    },
+    {
+      "image": "https://ibb.co/CwgcsxM",
+      "title": "Luxury Duplex with Garden",
+      "location": "101 Pine Lane, Countryside, Chittagong",
+      "price": 500000,
+      "status": "For Sale",
+      "type": "Duplex"
+    },
+    {
+      "image": "https://i.ibb.co/M7JCZsf/pexels-dmitry-zvolskiy-2082087.jpg",
+      "title": "Private Room in Shared House",
+      "location": "202 Maple Drive, Savar, Dhaka",
+      "price": 800,
+      "status": "For Rent",
+      "type": "Room"
+    },
+    {
+      "image": "https://ibb.co/C6Gw1LN",
+      "title": "Cozy Room in Shared House",
+      "location": "307 Asim Park, Mirpur-2, Dhaka",
+      "price": 600,
+      "status": "For Rent",
+      "type": "Room"
+    }
+  ]
+  
