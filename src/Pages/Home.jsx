@@ -4,6 +4,8 @@ import Navbar from "../Shared/Navbar";
 import Banner from "../Components/Home/Banner";
 import Properties from "../Components/Home/Properties";
 import Steps from "../Components/Home/Steps";
+import Testimonial from "../Components/Home/Testimonial";
+import Footer from "../Shared/Footer";
 
 
 
@@ -21,6 +23,9 @@ const Home = () => {
     <Banner />
     <Properties />
     <Steps />
+    <Testimonial />
+
+    <Footer />
 
     
       

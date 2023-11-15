@@ -115,7 +115,7 @@ const Navbar = () => {
             :
             <>
             <p>Guest</p> 
-            <img className="rounded-full w-1/4 md:w-[10%] mx-4" src='https://i.ibb.co/QrdfRKF/85434-guest-512x512.png' alt="" />
+            <img className="rounded-full w-1/4 md:w-[10%] lg:w-[5%] mx-4" src='https://i.ibb.co/QrdfRKF/85434-guest-512x512.png' alt="" />
             </>
           }
         </div>
