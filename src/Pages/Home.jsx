@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "../Shared/Navbar";
 import Banner from "../Components/Home/Banner";
 import Properties from "../Components/Home/Properties";
+import Steps from "../Components/Home/Steps";
 
 
 
@@ -19,6 +20,7 @@ const Home = () => {
   
     <Banner />
     <Properties />
+    <Steps />
 
     
       
