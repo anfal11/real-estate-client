@@ -14,7 +14,7 @@ const Navbar = () => {
       <li>
         <NavLink 
          className={({ isActive}) =>
-    isActive ? "text-blue-300 border hover:text-white" : "hover:text-white"
+    isActive ? "text-blue-300 font-bold border hover:text-white" : "hover:text-white"
   }
         to="/"
         >
@@ -23,18 +23,18 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink className={({ isActive}) =>
-    isActive ? "text-blue-300 border hover:text-white" : "hover:text-white"
+    isActive ? "text-blue-300 font-bold border hover:text-white" : "hover:text-white"
   } to="/properties">All Properties</NavLink>
       </li>
       <li>
         <NavLink className={({ isActive}) =>
-    isActive ? "text-blue-300 border hover:text-white" : "hover:text-white"
+    isActive ? "text-blue-300 font-bold border hover:text-white" : "hover:text-white"
   } to="dashboard">Dashboard</NavLink>
       </li>
       {
         user ? <> <button onClick={handleLogOut} className="btn text-xs btn-ghost pb-3">Logout</button> </> : <><li>
         <NavLink className={({ isActive}) =>
-    isActive ? "text-blue-300 border hover:text-white" : "hover:text-white"
+    isActive ? "text-blue-300 font-bold border hover:text-white" : "hover:text-white"
   } to="/login">Log In</NavLink>
       </li> </>
       }
@@ -61,7 +61,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar fixed z-40 bg-opacity-30 text-white bg-black">
+      <div className="navbar fixed z-40 bg-opacity-50 text-white bg-black">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
