@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
   
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, resetPassword } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
   
@@ -29,6 +29,14 @@ const Login = () => {
             toast.error(err.message);
         })
 
+        resetPassword(email)
+        .then(() => {
+            toast.success("Password reset link sent to your email");
+        })
+        .catch((err) => {
+            toast.error(err.message);
+        })
+
     }
 
     const handleGoogleLogin = async () => {
@@ -44,8 +52,8 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-gray-100 text-gray-900 flex justify-center">
-        <div className="max-w-7xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+      <div className="pt-20 text-gray-900 flex justify-center">
+        <div className="max-w-7xl mx-auto m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <div className="flex gap-6 justify-center items-center">
               <img
@@ -90,25 +98,25 @@ const Login = () => {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit}>
-                  <div className="mx-auto max-w-xs">
-                    <input
-                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                      type="email"
-                      placeholder="Enter valid email"
-                      name="email"
-                    />
-                    <input
-                      className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                      type={passwordVisible ? "text" : "password"}
-                      placeholder="Enter your password"
-                      name="password"
-                    />
-                    <span
-                onClick={togglePasswordVisibility}
-                className="relative left-[90%] -top-8 cursor-pointer"
-              >
-                <svg
+               <form onSubmit={handleSubmit} className="mx-auto max-w-full">
+  <div className="mx-auto max-w-xs">
+    <input
+      className="w-full px-4 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+      type="email"
+      placeholder="Enter valid email"
+      name="email"
+    />
+    <input
+      className="relative w-full px-4 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+      type={passwordVisible ? "text" : "password"}
+      placeholder="Enter your password"
+      name="password"
+    />
+    <span
+      onClick={togglePasswordVisibility}
+      className="absolute right-16 bottom-[36%] cursor-pointer"
+    >
+        <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 text-gray-600"
                   fill="none"
@@ -128,48 +136,32 @@ const Login = () => {
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                   />
                 </svg>
-              </span>
-                    <div>
-                        <Link
-                            className="mt-2 text-xs text-gray-500 float-left mb-2"
-                            to=''
-                        >
-                            Forgot Password?
-                        </Link>
-                    </div>
-                    <button className="mt-5 tracking-wide font-semibold bg-blue-500 text-white-500 w-full py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                      <svg
-                        className="w-6 h-6 text-white -ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                        <circle cx="8.5" cy="7" r="4" />
-                        <path d="M20 8v6M23 11h-6" />
-                      </svg>
-                      <span className="ml-2 text-white">Sign In</span>
-                    </button>
-                    <p className="mt-6 text-xs text-gray-600 text-center">
-                      I agree to abide by Cartesian Kinetics
-                      <a
-                        href="#"
-                        className="border-b border-gray-500 border-dotted"
-                      >
-                        Terms of Service
-                      </a>
-                      and its
-                      <a
-                        href="#"
-                        className="border-b border-gray-500 border-dotted"
-                      >
-                        Privacy Policy
-                      </a>
-                    </p>
-                  </div>
-                </form>
+    </span>
+    <div>
+      <Link
+        className="mt-2 text-xs text-gray-500 float-left mb-2"
+        to=''
+      >
+        Forgot Password?
+      </Link>
+    </div>
+    <button className="mt-5 tracking-wide font-semibold bg-blue-500 text-white-500 w-full py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+  
+      <span className="ml-2 text-white">Sign In</span>
+    </button>
+    <p className="mt-6 text-xs text-gray-600 text-center">
+      I agree to abide by Cartesian Kinetics
+      <a href="#" className="border-b border-gray-500 border-dotted">
+        Terms of Service
+      </a>
+      and its
+      <a href="#" className="border-b border-gray-500 border-dotted">
+        Privacy Policy
+      </a>
+    </p>
+  </div>
+</form>
+
               </div>
             </div>
           </div>
