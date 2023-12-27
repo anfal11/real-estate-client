@@ -9,6 +9,24 @@ const Navbar = () => {
   const [userProfile, setUserProfile] = useState(null);
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      toast.success("User Logout successfully");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    setUserProfile({
+      name: user?.displayName,
+      photo: user?.photoURL,
+    });
+  }, [user?.displayName, user?.photoURL]);
+
   const nav = (
     <>
       <li>
@@ -42,22 +60,7 @@ const Navbar = () => {
   );
 
 
-  const handleLogOut = async () => {
-    try {
-      await logOut();
-      toast.success("User Logout successfully");
-      navigate("/");
-    } catch (err) {
-      toast.error(err.message);
-    }
-  };
 
-  useEffect(() => {
-    setUserProfile({
-      name: user?.displayName,
-      photo: user?.photoURL,
-    });
-  }, [user?.displayName, user?.photoURL]);
 
   return (
     <div>
@@ -110,7 +113,9 @@ const Navbar = () => {
             user ? 
             <>
             <p>{user?.displayName}</p> 
-            <img className="rounded-full w-1/4 md:w-[10%] mx-4" src={user?.photoURL} alt="" />
+            {/* <img className="w-1/4 h-1/4 md:w-[10%] rounded mx-4" src={user?.photoURL} alt="" /> */}
+            <img className="w-1/6 h-1/6 md:w-[10%] rounded-full mx-4" src={user?.photoURL} alt="User Photo" />
+
             </>
             :
             <>

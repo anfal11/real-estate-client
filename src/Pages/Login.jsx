@@ -149,15 +149,18 @@ const Login = () => {
   
       <span className="ml-2 text-white">Sign In</span>
     </button>
+
+    <p className="text-sm text-gray-500">New here? 
+    <Link to='/register'><span className="underline">Signup</span></Link> from here</p>
+
     <p className="mt-6 text-xs text-gray-600 text-center">
-      I agree to abide by Cartesian Kinetics
-      <a href="#" className="border-b border-gray-500 border-dotted">
-        Terms of Service
-      </a>
-      and its
-      <a href="#" className="border-b border-gray-500 border-dotted">
-        Privacy Policy
-      </a>
+      I agree to abide by DreamSpace 
+      <span className="ml-1">
+         Terms of Service and its 
+      </span> Privacy Policy.
+      <span className="border-b border-gray-500 border-dotted">
+         
+      </span>
     </p>
   </div>
 </form>
