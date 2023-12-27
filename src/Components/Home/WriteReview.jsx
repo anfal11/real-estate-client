@@ -50,7 +50,7 @@ const WriteReview = () => {
               type="text"
               id="name"
               name="name"
-              className="py-3 px-4 block w-full border rounded-lg text-sm outline-none"
+              className="py-3 px-4 block w-full border rounded-lg text-sm outline-none font-bold"
               defaultValue={user?.displayName}
               readOnly
             />
@@ -63,7 +63,7 @@ const WriteReview = () => {
               type="email"
               id="email"
               name="email"
-              className="py-3 px-4 block w-full border rounded-lg text-sm outline-none"
+              className="py-3 px-4 block w-full border rounded-lg text-sm outline-none font-bold"
               defaultValue={user?.email}
               readOnly
             />
