@@ -14,6 +14,7 @@ const Properties = () => {
   const [sortBy, setSortBy] = useState("price");
   const [sortOrder, setSortOrder] = useState("asc");
   const [priceRange, setPriceRange] = useState(600000); 
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Function to handle sorting change
   const handleSortChange = (criteria) => {
@@ -33,10 +34,14 @@ const Properties = () => {
     return orderFactor * (a[sortBy] - b[sortBy]);
   };
 
-  // Function to filter properties based on price range
+  // Function to filter properties based on price range and search term
   const filterProperties = (property) => {
-    return property.price <= priceRange;
+    const matchesPriceRange = property.price <= priceRange;
+    const matchesSearchTerm = property.type.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchesPriceRange && (searchTerm === "" || matchesSearchTerm);
   };
+
 
   const { data: properties = [] } = useQuery({
     queryKey: ["properties"],
@@ -53,7 +58,7 @@ const Properties = () => {
       </Helmet>
       <Navbar />
       <div className="py-32">
-        <Searchbar />
+        <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <section className="max-w-7xl mx-auto flex justify-center">
         <Sorting
           handleSortChange={handleSortChange}
