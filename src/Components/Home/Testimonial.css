@@ -1,0 +1,11 @@
+/* Add these styles to your component's CSS */
+.swiper-button-next,
+.swiper-button-prev {
+  color: gray; /* Change this to your desired arrow color */
+}
+
+/* Optional: Add hover styles for a different color on hover */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: white; /* Change this to your desired hover color */
+}
