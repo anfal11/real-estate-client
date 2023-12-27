@@ -4,9 +4,39 @@ import useAxios from "../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import Cards from "../Components/AllProperty.jsx/Cards";
 import Searchbar from "../Components/AllProperty.jsx/Searchbar";
+import Sorting from "../Components/AllProperty.jsx/Sorting";
+import { useState } from "react";
 
 const Properties = () => {
   const axios = useAxios();
+
+  // State variables for sorting and price range
+  const [sortBy, setSortBy] = useState("price");
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [priceRange, setPriceRange] = useState(600000); 
+
+  // Function to handle sorting change
+  const handleSortChange = (criteria) => {
+    if (sortBy === criteria) {
+      // Toggle sorting order if the same criteria is clicked
+      setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+    } else {
+      // Set new sorting criteria and default order to 'asc'
+      setSortBy(criteria);
+      setSortOrder("asc");
+    }
+  };
+
+  // Function to sort properties based on the current sorting criteria and order
+  const sortProperties = (a, b) => {
+    const orderFactor = sortOrder === "asc" ? 1 : -1;
+    return orderFactor * (a[sortBy] - b[sortBy]);
+  };
+
+  // Function to filter properties based on price range
+  const filterProperties = (property) => {
+    return property.price <= priceRange;
+  };
 
   const { data: properties = [] } = useQuery({
     queryKey: ["properties"],
@@ -22,16 +52,25 @@ const Properties = () => {
         <title>Real Estate | Properties </title>
       </Helmet>
       <Navbar />
-      {/* <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 h-screen"> */}
       <div className="py-32">
-        
         <Searchbar />
-        <section className="max-w-7xl mx-auto gap-4 my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {properties?.map((property) => (
-            <Cards key={property.id} property={property} />
-          )
-          )
-          }
+        <section className="max-w-7xl mx-auto flex justify-center">
+        <Sorting
+          handleSortChange={handleSortChange}
+          setPriceRange={setPriceRange}
+          priceRange={priceRange}
+          sortBy={sortBy}
+          sortOrder={sortOrder}
+        />
+        </section>
+
+        <section className="max-w-7xl mx-auto gap-4 px-4 my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {properties
+            .filter(filterProperties)
+            .sort(sortProperties)
+            .map((property) => (
+              <Cards key={property._id} property={property} />
+            ))}
         </section>
       </div>
     </div>
