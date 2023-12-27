@@ -5,12 +5,14 @@ import Properties from "../Pages/Properties";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import PropertyDetails from "../Pages/PropertyDetails";
+import Errorpage from "../Pages/Errorpage";
 
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
-        errorElement: <h1>404 Not Found</h1>,
+        errorElement: <Errorpage />,
         children: [
             {
                 path: "/",
@@ -20,6 +22,10 @@ const Router = createBrowserRouter([
                 path: "properties",
                 element: <PrivateRoute><Properties /></PrivateRoute>,
             },
+            {
+                path: "/property/:id",
+                element: <PropertyDetails />,
+              },
             {
                 path: "login",
                 element: <Login />,

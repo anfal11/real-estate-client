@@ -1,4 +1,5 @@
 import "./Searchbar.css";
+import PropTypes from 'prop-types'
 
 const Searchbar = ({ searchTerm, setSearchTerm }) => {
   return (
@@ -32,5 +33,10 @@ const Searchbar = ({ searchTerm, setSearchTerm }) => {
     </div>
   );
 };
+
+Searchbar.propTypes = {
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
+}
 
 export default Searchbar;
