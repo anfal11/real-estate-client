@@ -42,11 +42,11 @@ const ContactUS = () => {
      {/* <img src="https://i.postimg.cc/PxTYMZ6C/silky-contacting-support-specialist-via-online-call.png" alt="" /> */}
      <form className="px-10" ref={form} onSubmit={sendEmail}>
         <label>Name</label>
-        <input type="text" name="user_name" />
+        <input required type="text" name="user_name" />
         <label>Email</label>
-        <input type="email" name="user_email" />
+        <input required type="email" name="user_email" />
         <label>Message</label>
-        <textarea name="message" />
+        <textarea required name="message" />
         <input id="send" type="submit" value="Send" />
       </form>
      </section>
@@ -77,7 +77,7 @@ const StyledContactForm = styled.div`
       border: 1px solid rgb(220, 220, 220);
 
       &:focus {
-        border: 2px solid rgba(0, 206, 158, 1);
+        border: 2px solid rgb(37, 99, 235);
       }
     }
 
@@ -93,7 +93,7 @@ const StyledContactForm = styled.div`
       border: 1px solid rgb(220, 220, 220);
 
       &:focus {
-        border: 2px solid rgba(0, 206, 158, 1);
+        border: 2px solid rgb(37, 99, 235);
       }
     }
 
@@ -107,6 +107,11 @@ const StyledContactForm = styled.div`
       background: #4B5563;
       color: white;
       border: none;
+    }
+
+    input[type="submit"]:hover {
+      background: #4B5563;
+      color: white;
     }
   }
 `;

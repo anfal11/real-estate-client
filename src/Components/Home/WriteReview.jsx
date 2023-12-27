@@ -35,7 +35,7 @@ const WriteReview = () => {
       };
 
     return (
-        <div className="max-w-7xl mx-auto mt-48">
+        <div className="max-w-7xl mx-auto px-5 mt-48">
             <h1 className='text-4xl font-bold text-gray-600 text-center underline'>Write an honest review</h1>
             <p className='text-center font-medium text-xl text-gray-500 my-6'>We value your feedback because it helps people a positive intension about our website.</p>
 
