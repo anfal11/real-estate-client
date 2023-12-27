@@ -4,6 +4,9 @@ import Banner from "../Components/Home/Banner";
 import Properties from "../Components/Home/Properties";
 import Steps from "../Components/Home/Steps";
 import Testimonial from "../Components/Home/Testimonial";
+import UserReview from "../Components/Home/UserReview";
+import ContactUs from "../Components/Home/ContactUs";
+import WriteReview from "../Components/Home/WriteReview";
 
 
 
@@ -23,6 +26,9 @@ const Home = () => {
     <Properties />
     <Steps />
     <Testimonial />
+    <UserReview />
+    <ContactUs />
+    <WriteReview />
 
 
     
