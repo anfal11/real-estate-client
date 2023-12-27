@@ -6,7 +6,7 @@
     "price": 250000,
     "status": "For Sale",
     "type": "Apartment",
-    "description": "A modern apartment offering stunning city views. Ideal for urban living."
+    "description": "A modern apartment offering stunning city views. Ideal for urban living. This apartment includes 2 bedrooms, a spacious living room, a well-equipped kitchen, and a stylish bathroom."
   },
   {
     "image": "https://i.ibb.co/KKKWDPq/premium-photo-1684175656320-5c3f701c082c-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-cro.jpg",
@@ -15,7 +15,7 @@
     "price": 350000,
     "status": "For Sale",
     "type": "House",
-    "description": "A spacious family house, perfect for comfortable and peaceful living."
+    "description": "A spacious family house, perfect for comfortable and peaceful living. This house features 4 bedrooms, a large living area, a fully-equipped kitchen, multiple bathrooms, and a beautiful garden."
   },
   {
     "image": "https://i.ibb.co/9qwn8V0/pexels-photo-3114350.jpg",
@@ -24,7 +24,7 @@
     "price": 350000,
     "status": "For Sale",
     "type": "Apartment",
-    "description": "A modern apartment located in a suburban area, combining comfort and convenience."
+    "description": "A modern apartment located in a suburban area, combining comfort and convenience. This apartment includes 3 bedrooms, a modern kitchen, a spacious living room, and 2 bathrooms."
   },
   {
     "image": "https://i.ibb.co/DLRKWKY/pexels-photo-6775268.jpg",
@@ -33,7 +33,7 @@
     "price": 350000,
     "status": "For Sale",
     "type": "House",
-    "description": "A spacious house featuring a beautiful garden, offering a tranquil living environment."
+    "description": "A spacious house featuring a beautiful garden, offering a tranquil living environment. This house has 5 bedrooms, a well-appointed kitchen, a large living area, and 3 bathrooms."
   },
   {
     "image": "https://i.ibb.co/xq2FR0X/photo-1588880331179-bc9b93a8cb5e-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
@@ -42,7 +42,7 @@
     "price": 1200,
     "status": "For Rent",
     "type": "Duplex",
-    "description": "A cozy studio apartment located near downtown, perfect for urban living."
+    "description": "A cozy studio apartment located near downtown, perfect for urban living. This studio includes a bedroom, a small kitchenette, and a private bathroom."
   },
   {
     "image": "https://i.ibb.co/rQYjfnc/photo-1689214718217-1beaebb918bf-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
@@ -51,7 +51,7 @@
     "price": 500000,
     "status": "For Sale",
     "type": "Duplex",
-    "description": "A luxury duplex featuring a beautiful garden, offering a sophisticated lifestyle."
+    "description": "A luxury duplex featuring a beautiful garden, offering a sophisticated lifestyle. This duplex includes 4 bedrooms, a modern kitchen, a spacious living area, and 3 bathrooms."
   },
   {
     "image": "https://i.ibb.co/M7JCZsf/pexels-dmitry-zvolskiy-2082087.jpg",
@@ -60,7 +60,7 @@
     "price": 800,
     "status": "For Rent",
     "type": "Room",
-    "description": "A private room available in a shared house, suitable for individuals seeking a cozy living space."
+    "description": "A private room available in a shared house, suitable for individuals seeking a cozy living space. The room includes a comfortable bed, a study desk, and access to shared kitchen and bathroom facilities."
   },
   {
     "image": "https://i.ibb.co/Lr70kKb/pexels-pixabay-271624.jpg",
@@ -69,6 +69,6 @@
     "price": 600,
     "status": "For Rent",
     "type": "Room",
-    "description": "A cozy room within a shared house, providing a comfortable and affordable living option."
+    "description": "A cozy room within a shared house, providing a comfortable and affordable living option. The room comes with essential furnishings and access to shared kitchen and bathroom facilities."
   }
 ]
