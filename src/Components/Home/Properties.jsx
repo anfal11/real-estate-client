@@ -76,7 +76,7 @@ const Properties = () => {
       </div>
       <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 ">
         <Link className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-600 shadow-sm hover:bg-gray-400 hover:text-white disabled:opacity-50 disabled:pointer-events-none" 
-        to=''
+        to={`/properties/${property?._id}`}
         >
           View Details
         </Link>

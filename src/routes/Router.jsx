@@ -19,19 +19,19 @@ const Router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "properties",
+                path: "/properties",
                 element: <PrivateRoute><Properties /></PrivateRoute>,
             },
             {
-                path: "/property/:id",
+                path: "/properties/:id",
                 element: <PropertyDetails />,
               },
             {
-                path: "login",
+                path: "/login",
                 element: <Login />,
             },
             {
-                path: "register",
+                path: "/register",
                 element: <Register />,
             }
         ],
