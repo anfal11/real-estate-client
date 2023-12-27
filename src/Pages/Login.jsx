@@ -1,7 +1,8 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -9,6 +10,7 @@ const Login = () => {
     const { signIn, signInWithGoogle, resetPassword } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const emailRef = useRef(null);
   
   
     const togglePasswordVisibility = () => {
@@ -29,27 +31,46 @@ const Login = () => {
             toast.error(err.message);
         })
 
-        resetPassword(email)
+     
+
+    }
+
+    const handleForgetPassword = () => {
+      const email = emailRef.current.value;
+      if (!email) {
+        return toast.error("Please enter your email");
+      }
+      
+      resetPassword(email)
+      .then(() => {
+          toast.success("Password reset link sent to your email");
+      })
+      .catch((err) => {
+          toast.error(err.message);
+      })
+    }
+
+    const handleGoogleLogin = () => {
+      signInWithGoogle()
+      .then(res => {
+        const user = res.user;
+        const name = user?.displayName;
+        const email = user?.email;
+        const image = user?.photoURL;
+        const userInfo = {name, email, image};
+        axios.post('http://localhost:5000/api/v1/users', userInfo)
         .then(() => {
-            toast.success("Password reset link sent to your email");
+          toast.success("User successfully logged in");
+          navigate(location?.state ? location.state : "/");
         })
-        .catch((err) => {
-            toast.error(err.message);
-        })
-
-    }
-
-    const handleGoogleLogin = async () => {
-        try {
-            await signInWithGoogle();
-            toast.success("User Signed in successfully");
-            navigate(location?.state ? location?.state : "/");
-        }
-        catch (err) {
-            toast.error(err.message);
-        }
-    }
-
+        .catch((error) => {
+          toast.error(error.message);
+        });
+      })
+        .catch((error) => {
+          toast.error(error.message);
+        });
+    };
   return (
     <div>
       <div className="pt-20 text-gray-900 flex justify-center">
@@ -103,6 +124,7 @@ const Login = () => {
     <input
       className="w-full px-4 py-3 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
       type="email"
+      ref={emailRef}
       placeholder="Enter valid email"
       name="email"
     />
@@ -138,12 +160,12 @@ const Login = () => {
                 </svg>
     </span>
     <div>
-      <Link
+      <a
         className="mt-2 text-xs text-gray-500 float-left mb-2"
-        to=''
+        onClick={handleForgetPassword}
       >
         Forgot Password?
-      </Link>
+      </a>
     </div>
     <button className="mt-5 tracking-wide font-semibold bg-blue-500 text-white-500 w-full py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
   
