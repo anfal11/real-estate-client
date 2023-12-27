@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import useAxios from '../../Hooks/useAxios';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const Properties = () => {
     const axiosSecure = useAxios();
@@ -86,7 +87,9 @@ const Properties = () => {
               }
       </Swiper>
         <div className='flex justify-center'>
+        <Link to='/properties'>
         <button className='mt-10 border-b-2 border-b-blue-600 p-2 rounded-md shadow-lg'> View All Properties </button>
+        </Link>
         </div>
         </div>
     );
