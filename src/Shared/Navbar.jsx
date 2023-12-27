@@ -113,7 +113,7 @@ const Navbar = () => {
             user ? 
             <>
             <p>{user?.displayName}</p> 
-            {/* <img className="w-1/4 h-1/4 md:w-[10%] rounded mx-4" src={user?.photoURL} alt="" /> */}
+            {/* <img className="w-1/6 md:w-[10%] rounded-full mx-4" src={user?.photoURL} alt="" /> */}
             <img className="w-1/6 md:w-[10%] xl:w-[6%] rounded-full mx-4" src={user?.photoURL} alt="User Photo" />
 
             </>
