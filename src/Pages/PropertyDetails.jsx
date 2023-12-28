@@ -58,6 +58,8 @@ const PropertyDetails = () => {
           <p className="mt-3 text-gray-600 text-xl font-semibold">
             ${property?.price}
           </p>
+
+          
          
          <button onClick={()=> window.history.back()} className='btn mt-10 bg-blue-600 text-white hover:bg-blue-400'> Go Back </button>
         </div>

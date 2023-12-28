@@ -20,11 +20,11 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/properties",
-                element: <PrivateRoute><Properties /></PrivateRoute>,
+                element: <Properties />,
             },
             {
                 path: "/properties/:id",
-                element: <PropertyDetails />,
+                element: <PrivateRoute><PropertyDetails /></PrivateRoute>,
               },
             {
                 path: "/login",
