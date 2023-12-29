@@ -1,8 +1,6 @@
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
-
 
 const PropertyDetails = () => {
   const [property, setProperty] = useState();
@@ -10,7 +8,9 @@ const PropertyDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/properties/${id}`);
+        const response = await fetch(
+          `http://localhost:5000/api/v1/properties/${id}`
+        );
         const data = await response.json();
         setProperty(data);
         // console.log(data);
@@ -23,60 +23,66 @@ const PropertyDetails = () => {
   }, [id]);
 
   return (
-    <div className='pt-28 px-10'>
-
-      <section className='max-w-7xl mx-auto'>
-
-      <div>
-      <h3 className="text-4xl my-10 font-semibold text-gray-600">
+    <div className="pt-28 px-10">
+      <section className="max-w-7xl mx-auto">
+        <div>
+          <h3 className="text-4xl my-10 font-semibold text-gray-600">
             {property?.title}
           </h3>
-        <div className="mb-20 group flex flex-col h-full bg-white rounded-xl ">
-        
-      <div className="flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
-      
-        <img className="object-cover w-full" src={property?.image} alt={property?.title}  />
-      </div>
+          <div className="mb-20 group flex flex-col h-full bg-white rounded-xl ">
+            <div className="flex flex-col justify-center items-center bg-blue-600 rounded-t-xl">
+              <img
+                className="object-cover w-full"
+                src={property?.image}
+                alt={property?.title}
+              />
+            </div>
 
-      <div className="p-4 md:p-6">
-     <div className='flex items-center gap-10'>
-     {
-              property?.status === 'For Sale' ? <p className="mt-3 text-gray-600 font-extrabold bg-yellow-400 w-24 p-4 text-center rounded-e-full">
-            {property?.status}
-          </p> : <p className="mt-3 text-white font-bold bg-blue-600 w-24 p-4 text-center rounded-e-full">
-              {property?.status}
+            <div className="p-4 md:p-6">
+              <div className="flex items-center gap-10">
+                {property?.status === "For Sale" ? (
+                  <p className="mt-3 text-gray-600 font-extrabold bg-yellow-400 w-24 p-4 text-center rounded-e-full">
+                    {property?.status}
+                  </p>
+                ) : (
+                  <p className="mt-3 text-white font-bold bg-blue-600 w-24 p-4 text-center rounded-e-full">
+                    {property?.status}
+                  </p>
+                )}
+
+                <span className="flex items-center gap-3">
+                  <span className="text-2xl font-medium border-l-2 border-gray-600 pl-2">
+                    Add to wishlist{" "}
+                  </span>
+                  <MdFavoriteBorder className="text-3xl cursor-pointer" />
+                </span>
+              </div>
+
+              <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
+                {property?.location}
+              </span>
+              <p className="mt-3 text-gray-600 text-xl font-bold">
+                <span className="underline">About this {property?.type}:</span>{" "}
+                {property?.description}
               </p>
-          }
+              <p className="mt-3 text-gray-600 text-xl font-bold">
+                Type: {property?.type}
+              </p>
+              <p className="mt-3 text-gray-600 text-xl font-semibold">
+                ${property?.price}
+              </p>
 
-           <span className='flex items-end gap-3'><span className='text-xl font-medium'>Add to wishlist </span><MdFavoriteBorder className='text-3xl cursor-pointer' /></span>
-     </div>
-          
-          <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
-            {property?.location}
-          </span>
-          <p className="mt-3 text-gray-600 text-xl font-bold">
-           <span className='underline'>About this {property?.type}:</span> {property?.description}
-          </p>
-          <p className="mt-3 text-gray-600 text-xl font-bold">
-            Type: {property?.type}
-          </p>
-          <p className="mt-3 text-gray-600 text-xl font-semibold">
-            ${property?.price}
-          </p>
-
-          
-         
-         <button onClick={()=> window.history.back()} className='btn mt-10 bg-blue-600 text-white hover:bg-blue-400'> Go Back </button>
-        </div>
-
-      </div>
+              <button
+                onClick={() => window.history.back()}
+                className="btn mt-10 bg-blue-600 text-white hover:bg-blue-400"
+              >
+                {" "}
+                Go Back{" "}
+              </button>
+            </div>
           </div>
-
+        </div>
       </section>
-      
-   
-
-
     </div>
   );
 };

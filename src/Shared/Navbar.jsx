@@ -47,7 +47,7 @@ const Navbar = () => {
       <li>
         <NavLink className={({ isActive}) =>
     isActive ? "text-blue-300 font-bold border hover:text-white" : "hover:text-white"
-  } to="dashboard">Dashboard</NavLink>
+  } to="/dashboard">Dashboard</NavLink>
       </li>
       {
         user ? <> <button onClick={handleLogOut} className="btn text-xs btn-ghost pb-3">Logout</button> </> : <><li>

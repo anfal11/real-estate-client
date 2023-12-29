@@ -7,6 +7,7 @@ import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import PropertyDetails from "../Pages/PropertyDetails";
 import Errorpage from "../Pages/Errorpage";
+import Dashboard from "../Pages/Dashboard";
 
 const Router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const Router = createBrowserRouter([
                 element: <Register />,
             }
         ],
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard />,
     }
 ])
 

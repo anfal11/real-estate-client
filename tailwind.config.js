@@ -9,7 +9,7 @@ export default {
     extend: {},
   },
   plugins: [
-    require('preline/plugin'), require("daisyui")
+    require('preline/plugin'), require("daisyui"),
   ],
 }
 
