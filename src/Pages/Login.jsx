@@ -13,9 +13,9 @@ const Login = () => {
     const emailRef = useRef(null);
   
   
-    const togglePasswordVisibility = () => {
-      setPasswordVisible(!passwordVisible);
-    };
+    // const togglePasswordVisibility = () => {
+    //   setPasswordVisible(!passwordVisible);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -134,9 +134,9 @@ const Login = () => {
       placeholder="Enter your password"
       name="password"
     />
-    <span
+    {/* <span
       onClick={togglePasswordVisibility}
-      className="absolute right-16 bottom-[36%] cursor-pointer"
+      className="absolute xl:bottom-[33%] cursor-pointer"
     >
         <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +158,7 @@ const Login = () => {
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                   />
                 </svg>
-    </span>
+    </span> */}
     <div>
       <a
         className="mt-2 text-xs text-gray-500 float-left mb-2"

@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { MdFavoriteBorder } from "react-icons/md";
 
 
 const PropertyDetails = () => {
@@ -12,7 +13,7 @@ const PropertyDetails = () => {
         const response = await fetch(`http://localhost:5000/api/v1/properties/${id}`);
         const data = await response.json();
         setProperty(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error fetching property details:", error);
       }
@@ -22,7 +23,7 @@ const PropertyDetails = () => {
   }, [id]);
 
   return (
-    <div className='pt-28'>
+    <div className='pt-28 px-10'>
 
       <section className='max-w-7xl mx-auto'>
 
@@ -38,13 +39,17 @@ const PropertyDetails = () => {
       </div>
 
       <div className="p-4 md:p-6">
-      {
+     <div className='flex items-center gap-10'>
+     {
               property?.status === 'For Sale' ? <p className="mt-3 text-gray-600 font-extrabold bg-yellow-400 w-24 p-4 text-center rounded-e-full">
             {property?.status}
           </p> : <p className="mt-3 text-white font-bold bg-blue-600 w-24 p-4 text-center rounded-e-full">
               {property?.status}
               </p>
           }
+
+           <span className='flex items-center gap-3'><MdFavoriteBorder className='text-3xl' /></span>
+     </div>
           
           <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
             {property?.location}
