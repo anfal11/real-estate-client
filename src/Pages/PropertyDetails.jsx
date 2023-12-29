@@ -48,7 +48,7 @@ const PropertyDetails = () => {
               </p>
           }
 
-           <span className='flex items-center gap-3'><MdFavoriteBorder className='text-3xl' /></span>
+           <span className='flex items-end gap-3'><span className='text-xl font-medium'>Add to wishlist </span><MdFavoriteBorder className='text-3xl cursor-pointer' /></span>
      </div>
           
           <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
