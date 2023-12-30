@@ -1,4 +1,10 @@
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaCircleUser } from "react-icons/fa6";
+import { GiSelfLove } from "react-icons/gi";
+import { MdAttachMoney } from "react-icons/md";
+import { FaRegStar } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { BiSolidBuildingHouse } from "react-icons/bi";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
@@ -53,26 +59,43 @@ const Dashboard = () => {
           }
             <>
             <li>
-                <NavLink to='/dashboard/profile' className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Profile</NavLink>
+            
+                <NavLink to='/dashboard/profile' className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaCircleUser className="text-white text-3xl mr-3" />
+                My Profile
+                </NavLink>
               </li>
             <li>
-                <NavLink to="/dashboard/wishlist" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Wishlist</NavLink>
+                <NavLink to="/dashboard/wishlist" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <GiSelfLove className="text-white text-3xl mr-3" />
+                Wishlist
+                </NavLink>
               </li>
             <li>
-                <NavLink to="/dashboard/propertyBuy" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Property bought</NavLink>
+                <NavLink to="/dashboard/propertyBuy" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <MdAttachMoney className="text-white text-3xl mr-3"/>
+                Property bought
+                </NavLink>
               </li>
             <li>
-                <NavLink to="/dashboard/myReviews" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Reviews</NavLink>
+                <NavLink to="/dashboard/myReviews" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaRegStar className="text-white text-3xl mr-3"/>
+                My Reviews
+                </NavLink>
               </li>
             </>
           
 
           <div className="divider"></div> 
           <li>
-                <NavLink to="/" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Home</NavLink>
+                <NavLink to="/" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaHome className="text-white text-3xl mr-3"/>
+                Home</NavLink>
               </li>
           <li>
-                <NavLink to="/properties" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">All Properties</NavLink>
+                <NavLink to="/properties" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <BiSolidBuildingHouse className="text-white text-3xl mr-3"/>
+                All Properties</NavLink>
               </li>
           
           <div className="divider"></div>

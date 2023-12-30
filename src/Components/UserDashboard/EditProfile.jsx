@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { MdDownloadDone } from "react-icons/md";
 
+
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const EditProfile = () => {
@@ -68,7 +69,7 @@ const EditProfile = () => {
     <div className="pt-36">
       {!loading ? (
         <>
-          <h1 className="text-center underline">Update Your Profile Here</h1>
+          <h1 className="text-center font-bold text-3xl">Update Your Profile Here</h1>
 
           <section className="max-w-3xl mx-auto">
             <div className="flex flex-col items-center justify-center px-6 mx-auto lg:py-4">
