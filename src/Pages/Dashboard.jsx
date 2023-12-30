@@ -10,6 +10,10 @@ import { MdOutlineAddHome } from "react-icons/md";
 import { BsHouseHeartFill } from "react-icons/bs";
 import { BsFillHouseDashFill } from "react-icons/bs";
 import { FaHouseCircleExclamation } from "react-icons/fa6";
+import { CgProfile } from "react-icons/cg";
+import { FaUsers } from "react-icons/fa6";
+import { MdReviews } from "react-icons/md";
+import { MdApartment } from "react-icons/md";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
@@ -62,16 +66,24 @@ const Dashboard = () => {
             isAdmin &&
             <>
               <li>
-                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Admin Profile</NavLink>
+                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <CgProfile className="text-white text-3xl mr-3" />
+                Admin Profile</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manageProperties" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage Properties</NavLink>
+                <NavLink to="/dashboard/manageProperties" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <MdApartment className="text-white text-3xl mr-3" />
+                Manage Properties</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manageUsers" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage users</NavLink>
+                <NavLink to="/dashboard/manageUsers" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaUsers className="text-white text-3xl mr-3" />
+                Manage users</NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/manageReviews" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage reviews</NavLink>
+                <NavLink to="/dashboard/manageReviews" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <MdReviews className="text-white text-3xl mr-3" />
+                Manage reviews</NavLink>
               </li>
             </>
           }

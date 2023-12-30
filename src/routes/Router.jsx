@@ -17,6 +17,9 @@ import MyAddedProperty from "../Components/AgentDashboard/MyAddedProperty";
 import MySoldProperty from "../Components/AgentDashboard/MySoldProperty";
 import RequestProperties from "../Components/AgentDashboard/RequestProperties";
 import UpdateProperty from "../Components/AgentDashboard/UpdateProperty";
+import ManageProperties from "../Components/AdminDashboard/ManageProperties";
+import ManageUsers from "../Components/AdminDashboard/ManageUsers";
+import ManageReviews from "../Components/AdminDashboard/ManageReviews";
 
 const Router = createBrowserRouter([
     {
@@ -54,6 +57,7 @@ const Router = createBrowserRouter([
                 path: "profile",
                 element: <MyProfile />,
             },
+            // user dashboard
             {
                 path: "editProfile/:id",
                 element: <EditProfile />,
@@ -66,6 +70,7 @@ const Router = createBrowserRouter([
                 path: "wishlist",
                 element: <Wishlist />,
             },
+            // agent dashboard
             {
                 path: "addProperty",
                 element: <AddProperty />,
@@ -85,7 +90,20 @@ const Router = createBrowserRouter([
             {
                 path: "update-property/:id",
                 element: <UpdateProperty />,
-            }
+            },
+            // admin dashboard
+            {
+                path: "manageProperties",
+                element: <ManageProperties />,
+            },
+            {
+                path: "manageUsers",
+                element: <ManageUsers />,
+            },
+            {
+                path: "manageReviews",
+                element: <ManageReviews />,
+            },
         ]
     }
 ])
