@@ -19,7 +19,7 @@ const MyReviews = () => {
 
     return (
         <div>
-            <h1 className="text-3xl text-gray-600 font-bold text-center my-16"> All of my Reviews: {reviews?.length} </h1>
+            <h1 className="text-3xl text-gray-600 font-bold text-center my-16"> My Reviews: {reviews?.length} </h1>
 
             {
                 reviews?.length > 0 ?

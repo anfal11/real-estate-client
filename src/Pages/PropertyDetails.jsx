@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
 const PropertyDetails = () => {
   const [property, setProperty] = useState();
+  const [isInWishlist, setIsInWishlist] = useState(false);
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +23,26 @@ const PropertyDetails = () => {
 
     fetchData();
   }, [id]);
+
+  const addToWishlist = async () => {
+    await fetch(`http://localhost:5000/api/v1/wishlist`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(property),
+    });
+
+    setIsInWishlist(true);
+  };
+
+  const removeFromWishlist = async () => {
+    await fetch(`http://localhost:5000/api/v1/wishlist/${id}`, {
+      method: "DELETE",
+    });
+
+    setIsInWishlist(false);
+  };
 
   return (
     <div className="pt-28 px-10">
@@ -52,9 +74,19 @@ const PropertyDetails = () => {
 
                 <span className="flex items-center gap-3">
                   <span className="text-2xl font-medium border-l-2 border-gray-600 pl-2">
-                    Add to wishlist{" "}
+                    {isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
                   </span>
-                  <MdFavoriteBorder className="text-3xl cursor-pointer" />
+                  {isInWishlist ? (
+                    <MdFavorite
+                      className="text-3xl cursor-pointer"
+                      onClick={removeFromWishlist}
+                    />
+                  ) : (
+                    <MdFavoriteBorder
+                      className="text-3xl cursor-pointer"
+                      onClick={addToWishlist}
+                    />
+                  )}
                 </span>
               </div>
 

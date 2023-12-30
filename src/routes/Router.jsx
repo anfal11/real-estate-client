@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard";
 import MyProfile from "../Components/UserDashboard/MyProfile";
 import EditProfile from "../Components/UserDashboard/EditProfile";
 import MyReviews from "../Components/UserDashboard/MyReviews";
+import Wishlist from "../Components/UserDashboard/Wishlist";
 
 const Router = createBrowserRouter([
     {
@@ -55,7 +56,11 @@ const Router = createBrowserRouter([
             {
                 path: "myReviews",
                 element: <MyReviews />,
-            }
+            },
+            {
+                path: "wishlist",
+                element: <Wishlist />,
+            },
         ]
     }
 ])
