@@ -25,23 +25,41 @@ const Dashboard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-blue-500 text-base-content">
           {/* Sidebar content here */}
           
           {
-            isAdmin ?
+            isAdmin &&
             <>
               <li>
-                <NavLink to="/dashboard/adminProfile" className="menu text-base lg:text-2xl p-5 text-black text-center">Admin Profile</NavLink>
-              </li>
-            </>
-            : 
-            <>
-            <li>
-                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-black text-center">Profile</NavLink>
+                <NavLink to="/dashboard/adminProfile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Admin Profile</NavLink>
               </li>
             </>
           }
+            <>
+            <li>
+                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Profile</NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/wishlist" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Wishlist</NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/propertyBuy" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Property bought</NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/myReviews" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Reviews</NavLink>
+              </li>
+            </>
+          
+
+          <div className="divider"></div> 
+          <li>
+                <NavLink to="/" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Home</NavLink>
+              </li>
+          <li>
+                <NavLink to="/properties" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">All Properties</NavLink>
+              </li>
+          
 
         </ul>
       </div>

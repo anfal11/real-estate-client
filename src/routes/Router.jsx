@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import PropertyDetails from "../Pages/PropertyDetails";
 import Errorpage from "../Pages/Errorpage";
 import Dashboard from "../Pages/Dashboard";
+import MyProfile from "../Components/UserDashboard/MyProfile";
 
 const Router = createBrowserRouter([
     {
@@ -40,6 +41,12 @@ const Router = createBrowserRouter([
     {
         path: "dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        children: [
+            {
+                path: "profile",
+                element: <MyProfile />,
+            }
+        ]
     }
 ])
 
