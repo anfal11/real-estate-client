@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineLocalOffer } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Wishlist = () => {
   const [favorite, setFavorite] = useState([]);
@@ -26,9 +27,22 @@ const Wishlist = () => {
 
   const removeFromWishlist = async (propertyId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/wishlist/${propertyId}`);
-      const updatedFavorite = favorite.filter((fav) => fav._id !== propertyId);
-      setFavorite(updatedFavorite);
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this property!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (result.isConfirmed) {
+        await axios.delete(`http://localhost:5000/api/v1/wishlist/${propertyId}`);
+        const updatedFavorite = favorite.filter((fav) => fav._id !== propertyId);
+        setFavorite(updatedFavorite);
+        Swal.fire("Deleted!", "Your property has been deleted.", "success");
+      }
     } catch (error) {
       console.error("Error removing from wishlist:", error);
     }
@@ -54,7 +68,7 @@ const Wishlist = () => {
                 {" "}
                 {fav?.title}{" "}
               </h1>
-              <p className="text-lg text-blue-600 font-semibold">
+              <p className="h-16 text-lg text-blue-600 font-semibold">
                 {" "}
                 {fav?.location}{" "}
               </p>
@@ -62,9 +76,9 @@ const Wishlist = () => {
                 {" "}
                 ${fav?.price}{" "}
               </p>
-              <p className="text-lg text-gray-600 h-48"> {fav?.description} </p>
+              <p className="text-lg text-gray-600 h-52"> {fav?.description} </p>
 
-              <div className="flex gap-1 md:gap-4">
+              <div className="flex justify-center gap-1 md:gap-4">
                 <button className="btn bg-indigo-600 text-white hover:bg-indigo-900">
                   <MdOutlineLocalOffer className="md:text-2xl" />
                   Make an offer
