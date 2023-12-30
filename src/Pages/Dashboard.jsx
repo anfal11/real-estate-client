@@ -40,7 +40,7 @@ const Dashboard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-blue-500 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-blue-600 text-base-content">
           {/* Sidebar content here */}
           
           {
@@ -80,6 +80,7 @@ const Dashboard = () => {
                 <button onClick={handleLogOut} className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Logout</button>
               </li>
         </ul>
+
       </div>
     </div>
   );

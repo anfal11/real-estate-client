@@ -9,6 +9,7 @@ import PropertyDetails from "../Pages/PropertyDetails";
 import Errorpage from "../Pages/Errorpage";
 import Dashboard from "../Pages/Dashboard";
 import MyProfile from "../Components/UserDashboard/MyProfile";
+import EditProfile from "../Components/UserDashboard/EditProfile";
 
 const Router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const Router = createBrowserRouter([
             {
                 path: "profile",
                 element: <MyProfile />,
+            },
+            {
+                path: "editProfile",
+                element: <EditProfile />,
             }
         ]
     }
