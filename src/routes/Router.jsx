@@ -10,6 +10,7 @@ import Errorpage from "../Pages/Errorpage";
 import Dashboard from "../Pages/Dashboard";
 import MyProfile from "../Components/UserDashboard/MyProfile";
 import EditProfile from "../Components/UserDashboard/EditProfile";
+import MyReviews from "../Components/UserDashboard/MyReviews";
 
 const Router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const Router = createBrowserRouter([
             {
                 path: "editProfile/:id",
                 element: <EditProfile />,
+            },
+            {
+                path: "myReviews",
+                element: <MyReviews />,
             }
         ]
     }

@@ -5,6 +5,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { BiSolidBuildingHouse } from "react-icons/bi";
+import { IoLogOutOutline } from "react-icons/io5";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
@@ -100,7 +101,9 @@ const Dashboard = () => {
           
           <div className="divider"></div>
           <li>
-                <button onClick={handleLogOut} className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Logout</button>
+                <button onClick={handleLogOut} className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <IoLogOutOutline className="text-white text-3xl mr-3"/>
+                Logout</button>
               </li>
         </ul>
 
