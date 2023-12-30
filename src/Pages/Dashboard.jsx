@@ -10,9 +10,11 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAgent from "../Hooks/useAgent";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const [isAgent] = useAgent();
   const {logOut} = useAuth();
   // console.log(isAdmin);
 
@@ -50,6 +52,8 @@ const Dashboard = () => {
         <ul className="menu p-4 w-80 min-h-full bg-blue-600 text-base-content">
           {/* Sidebar content here */}
           
+          {/* admin dashboard */}
+
           {
             isAdmin &&
             <>
@@ -58,7 +62,53 @@ const Dashboard = () => {
               </li>
             </>
           }
-            <>
+
+          {/* agent dashboard */}
+          
+            {
+              isAgent && 
+              <>
+            <li>
+            
+                <NavLink to='/dashboard/profile' className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaCircleUser className="text-white text-3xl mr-3" />
+                Agent Profile
+                </NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/addProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <GiSelfLove className="text-white text-3xl mr-3" />
+                Add Property
+                </NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/myAddedProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <MdAttachMoney className="text-white text-3xl mr-3"/>
+                My added properties
+                </NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/mySoldProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaRegStar className="text-white text-3xl mr-3"/>
+                My sold properties
+                </NavLink>
+              </li>
+            <li>
+                <NavLink to="/dashboard/reqProperties" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <FaRegStar className="text-white text-3xl mr-3"/>
+                Requested properties
+                </NavLink>
+              </li>
+            </>
+            }
+
+
+            {/* user dashboard */}
+
+            {
+              !isAdmin && !isAgent &&
+              <>
+            
             <li>
             
                 <NavLink to='/dashboard/profile' className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
@@ -85,6 +135,8 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
+            }
+           
           
 
           <div className="divider"></div> 
