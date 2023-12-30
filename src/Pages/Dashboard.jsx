@@ -64,6 +64,15 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Admin Profile</NavLink>
               </li>
+              <li>
+                <NavLink to="/dashboard/manageProperties" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage Properties</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageUsers" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage users</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageReviews" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Manage reviews</NavLink>
+              </li>
             </>
           }
 
