@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const PropertyDetails = () => {
+
   const [property, setProperty] = useState();
   const [isInWishlist, setIsInWishlist] = useState(false);
+  const {user } = useAuth();
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
@@ -25,24 +29,59 @@ const PropertyDetails = () => {
   }, [id]);
 
   const addToWishlist = async () => {
-    await fetch(`http://localhost:5000/api/v1/wishlist`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(property),
-    });
-
-    setIsInWishlist(true);
+    try {
+      const requestBody = {
+        id: property?._id,
+        email: user?.email,
+        image: property?.image,
+        title: property?.title,
+        location: property?.location,
+        price: property?.price,
+        status: property?.status,
+        type: property?.type,
+        description: property?.description,
+      };
+  
+      await fetch(`http://localhost:5000/api/v1/wishlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+      toast.success("Property added to wishlist");
+      setIsInWishlist(true);
+    } catch (error) {
+      console.error("Error adding to wishlist:", error);
+      toast.error("Already added to wishlist");
+    }
   };
+  
 
   const removeFromWishlist = async () => {
-    await fetch(`http://localhost:5000/api/v1/wishlist/${id}`, {
-      method: "DELETE",
-    });
-
-    setIsInWishlist(false);
+    try {
+      const propertyId = property?.propertyId;
+      if (!propertyId) {
+        toast.error("Go to dashboard and remove from wishlist");
+        return;
+      }
+  
+      await fetch(`http://localhost:5000/api/v1/wishlist/${propertyId}`, {
+        method: "DELETE",
+      });
+  
+      toast.success("Property removed from wishlist");
+      setIsInWishlist(false);
+    } catch (error) {
+      console.error("Error removing from wishlist:", error);
+      toast.error("Failed to remove from wishlist");
+    }
   };
+  
+  
+  
+  
+  
 
   return (
     <div className="pt-28 px-10">
