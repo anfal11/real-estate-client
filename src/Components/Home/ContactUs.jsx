@@ -35,7 +35,7 @@ const ContactUS = () => {
   };
 
   return (
-    <StyledContactForm className="max-w-5xl mx-auto mt-64 mb-20" id="contact">
+    <StyledContactForm className="max-w-5xl mx-auto mt-40 mb-20" id="contact">
     {/* <div data-aos="fade-left"> */}
     <h1  className="text-center font-bold text-4xl text-gray-600 underline mb-10"> Contact with Us </h1>
      <section className="flex flex-col md:flex-row gap-10">
