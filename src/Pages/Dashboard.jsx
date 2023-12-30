@@ -1,5 +1,5 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
@@ -7,7 +7,8 @@ import toast from "react-hot-toast";
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
   const {logOut} = useAuth();
-  console.log(isAdmin);
+  // console.log(isAdmin);
+  const {id} = useParams();
 
   const navigate = useNavigate();
 
@@ -53,7 +54,7 @@ const Dashboard = () => {
           }
             <>
             <li>
-                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Profile</NavLink>
+                <NavLink to={`/dashboard/profile/${id}`} className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">My Profile</NavLink>
               </li>
             <li>
                 <NavLink to="/dashboard/wishlist" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Wishlist</NavLink>

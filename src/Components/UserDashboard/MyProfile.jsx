@@ -1,9 +1,31 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import { FaRegEdit } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const MyProfile = () => {
+  const [currentUser, setCurrentUser] = useState({});
   const { user } = useAuth();
-  console.log(user);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/v1/users`
+        );
+        const data = await response.json();
+        const filteredData = data.filter((item) => item.email === user?.email);
+        setCurrentUser(filteredData);
+        console.log(filteredData);
+      } catch (error) {
+        console.error("Error fetching property details:", error);
+      }
+    };
+
+    fetchData();
+  }, [user?.email]);
+
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -28,7 +50,10 @@ const MyProfile = () => {
           <p className="text-center font-bold text-xl lg:text-base xl:text-xl text-gray-600">Photo</p>
           <img className="mx-auto w-20 rounded-full" src={user?.photoURL} alt="user" />
         </div>
-        <NavLink to='/dashboard/editProfile' className="bg-white text-gray-600 w-36 h-14 p-4 font-bold shadow-xl rounded-lg text-xl">Edit Profile</NavLink>
+        <div className="mt-10 bg-blue-600 flex items-center text-white w-44 gap-4 h-16 p-3 font-bold shadow-xl rounded-lg text-xl">
+        <FaRegEdit className="text-white text-2xl" />
+          <NavLink to={`/dashboard/editProfile/${currentUser[0]?._id}`}  >Edit Profile</NavLink>
+        </div>
       </div>
     </div>
   );
