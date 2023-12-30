@@ -16,6 +16,7 @@ import AddProperty from "../Components/AgentDashboard/AddProperty";
 import MyAddedProperty from "../Components/AgentDashboard/MyAddedProperty";
 import MySoldProperty from "../Components/AgentDashboard/MySoldProperty";
 import RequestProperties from "../Components/AgentDashboard/RequestProperties";
+import UpdateProperty from "../Components/AgentDashboard/UpdateProperty";
 
 const Router = createBrowserRouter([
     {
@@ -81,6 +82,10 @@ const Router = createBrowserRouter([
                 path: "reqProperties",
                 element: <RequestProperties />,
             },
+            {
+                path: "update-property/:id",
+                element: <UpdateProperty />,
+            }
         ]
     }
 ])

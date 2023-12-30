@@ -22,10 +22,6 @@ const MyAddedProperty = () => {
     fetchAddedProperties();
   }, [users]);
 
-  const handleUpdateProperty = (_id) => {
-    window.location.href = `/update-property/${_id}`;
-  };
-
   const handleDeleteProperty = async (_id) => {
     try {
       const result = await Swal.fire({
@@ -59,7 +55,7 @@ const MyAddedProperty = () => {
       <h1 className="text-3xl font-bold my-10 text-center">My Added Properties</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3'>
       {addedProperties.map((property) => (
-        <div key={property.id} className="mb-8 border p-4 rounded-md">
+        <div key={property._id} className="mb-8 border p-4 rounded-md">
           <img
             src={property.image}
             alt={property.title}
@@ -81,10 +77,11 @@ const MyAddedProperty = () => {
           ) : (
             <p className="text-red-500 font-bold mb-2">Verification Status: Rejected</p>
           )}
+          <p className="text-gray-600 font-medium mb-2">{property?.type}</p>
           <p className="text-gray-600 font-medium mb-2">Price: {property?.price}</p>
       
           <div className="flex justify-between items-center">
-            <NavLink to={`/properties/${property?._id}`}
+            <NavLink to={`/dashboard/update-property/${property?._id}`}
             
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
             >
