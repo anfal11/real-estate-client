@@ -26,7 +26,7 @@ const AddProperty = () => {
         image: imageURL,
         agentName: form.get("agentName") || users[0]?.name,
         agentEmail: form.get("agentEmail") || users[0]?.email,
-        price: form.get("price"),
+        price: Number(form.get("price")),
         description: form.get("description"),
         status: form.get("status"),
         type: form.get("type"),

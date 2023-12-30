@@ -1,74 +1,90 @@
 [
   {
-    "image": "https://i.ibb.co/0qVWxxb/pexels-photo-129494.jpg",
     "title": "Modern Apartment with City View",
     "location": "123 Main Street, Mirpur-6 Dhaka",
+    "image": "https://i.ibb.co/0qVWxxb/pexels-photo-129494.jpg",
+    "agentName": "Anfal Bin Razzak",
+    "agentEmail": "anfal15-14303@diu.edu.bd",
     "price": 250000,
+    "description": "A modern apartment offering stunning city views. Ideal for urban living. This apartment includes 2 bedrooms, a spacious living room, a well-equipped kitchen, and a stylish bathroom.",
     "status": "For Sale",
-    "type": "Apartment",
-    "description": "A modern apartment offering stunning city views. Ideal for urban living. This apartment includes 2 bedrooms, a spacious living room, a well-equipped kitchen, and a stylish bathroom."
+    "type": "Apartment"
   },
   {
-    "image": "https://i.ibb.co/KKKWDPq/premium-photo-1684175656320-5c3f701c082c-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-cro.jpg",
     "title": "Spacious Family House",
     "location": "425 Avenue, Mirpur-14, Dhaka",
+    "image": "https://i.ibb.co/KKKWDPq/premium-photo-1684175656320-5c3f701c082c-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-cro.jpg",
+    "agentName": "Anfal Ratul",
+    "agentEmail": "dev.ratul1@gmail.com",
     "price": 350000,
+    "description": "A spacious family house, perfect for comfortable and peaceful living. This house features 4 bedrooms, a large living area, a fully-equipped kitchen, multiple bathrooms, and a beautiful garden.",
     "status": "For Sale",
-    "type": "House",
-    "description": "A spacious family house, perfect for comfortable and peaceful living. This house features 4 bedrooms, a large living area, a fully-equipped kitchen, multiple bathrooms, and a beautiful garden."
+    "type": "House"
   },
   {
-    "image": "https://i.ibb.co/9qwn8V0/pexels-photo-3114350.jpg",
     "title": "Modern Apartment in Suburbia",
     "location": "456 Oak Avenue, Dhanmondi 32, Dhaka",
+    "image": "https://i.ibb.co/9qwn8V0/pexels-photo-3114350.jpg",
+    "agentName": "Anfal Bin Razzak",
+    "agentEmail": "anfal15-14303@diu.edu.bd",
     "price": 350000,
+    "description": "A modern apartment located in a suburban area, combining comfort and convenience. This apartment includes 3 bedrooms, a modern kitchen, a spacious living room, and 2 bathrooms.",
     "status": "For Sale",
-    "type": "Apartment",
-    "description": "A modern apartment located in a suburban area, combining comfort and convenience. This apartment includes 3 bedrooms, a modern kitchen, a spacious living room, and 2 bathrooms."
+    "type": "Apartment"
   },
   {
-    "image": "https://i.ibb.co/DLRKWKY/pexels-photo-6775268.jpg",
     "title": "Spacious House with Garden",
     "location": "160 Visa Park, Hazi Ali Road, Chittagong",
+    "image": "https://i.ibb.co/DLRKWKY/pexels-photo-6775268.jpg",
+    "agentName": "Anfal Ratul",
+    "agentEmail": "dev.ratul1@gmail.com",
     "price": 350000,
+    "description": "A spacious house featuring a beautiful garden, offering a tranquil living environment. This house has 5 bedrooms, a well-appointed kitchen, a large living area, and 3 bathrooms.",
     "status": "For Sale",
-    "type": "House",
-    "description": "A spacious house featuring a beautiful garden, offering a tranquil living environment. This house has 5 bedrooms, a well-appointed kitchen, a large living area, and 3 bathrooms."
+    "type": "House"
   },
   {
-    "image": "https://i.ibb.co/xq2FR0X/photo-1588880331179-bc9b93a8cb5e-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
     "title": "Cozy Studio near Downtown",
     "location": "789 Elm Street, Gulshan, Dhaka",
+    "image": "https://i.ibb.co/xq2FR0X/photo-1588880331179-bc9b93a8cb5e-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
+    "agentName": "Anfal Bin Razzak",
+    "agentEmail": "anfal15-14303@diu.edu.bd",
     "price": 1200,
+    "description": "A cozy studio apartment located near downtown, perfect for urban living. This studio includes a bedroom, a small kitchenette, and a private bathroom.",
     "status": "For Rent",
-    "type": "Duplex",
-    "description": "A cozy studio apartment located near downtown, perfect for urban living. This studio includes a bedroom, a small kitchenette, and a private bathroom."
+    "type": "Duplex"
   },
   {
-    "image": "https://i.ibb.co/rQYjfnc/photo-1689214718217-1beaebb918bf-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
     "title": "Luxury Duplex with Garden",
     "location": "101 Pine Lane, Countryside, Chittagong",
+    "image": "https://i.ibb.co/rQYjfnc/photo-1689214718217-1beaebb918bf-blend-000000-blend-alpha-10-blend-mode-normal-blend-w-1-crop-faces.jpg",
+    "agentName": "Anfal Ratul",
+    "agentEmail": "dev.ratul1@gmail.com",
     "price": 500000,
+    "description": "A luxury duplex featuring a beautiful garden, offering a sophisticated lifestyle. This duplex includes 4 bedrooms, a modern kitchen, a spacious living area, and 3 bathrooms.",
     "status": "For Sale",
-    "type": "Duplex",
-    "description": "A luxury duplex featuring a beautiful garden, offering a sophisticated lifestyle. This duplex includes 4 bedrooms, a modern kitchen, a spacious living area, and 3 bathrooms."
+    "type": "Duplex"
   },
   {
-    "image": "https://i.ibb.co/M7JCZsf/pexels-dmitry-zvolskiy-2082087.jpg",
     "title": "Private Room in Shared House",
     "location": "202 Maple Drive, Savar, Dhaka",
+    "image": "https://i.ibb.co/M7JCZsf/pexels-dmitry-zvolskiy-2082087.jpg",
+    "agentName": "Anfal Bin Razzak",
+    "agentEmail": "anfal15-14303@diu.edu.bd",
     "price": 800,
+    "description": "A private room available in a shared house, suitable for individuals seeking a cozy living space. The room includes a comfortable bed, a study desk, and access to shared kitchen and bathroom facilities.",
     "status": "For Rent",
-    "type": "Room",
-    "description": "A private room available in a shared house, suitable for individuals seeking a cozy living space. The room includes a comfortable bed, a study desk, and access to shared kitchen and bathroom facilities."
+    "type": "Room"
   },
   {
-    "image": "https://i.ibb.co/Lr70kKb/pexels-pixabay-271624.jpg",
     "title": "Cozy Room in Shared House",
     "location": "307 Asim Park, Mirpur-2, Dhaka",
+    "image": "https://i.ibb.co/Lr70kKb/pexels-pixabay-271624.jpg",
+    "agentName": "Anfal Ratul",
+    "agentEmail": "dev.ratul1@gmail.com",
     "price": 600,
+    "description": "A cozy room within a shared house, providing a comfortable and affordable living option. The room comes with essential furnishings and access to shared kitchen and bathroom facilities.",
     "status": "For Rent",
-    "type": "Room",
-    "description": "A cozy room within a shared house, providing a comfortable and affordable living option. The room comes with essential furnishings and access to shared kitchen and bathroom facilities."
+    "type": "Room"
   }
 ]
