@@ -6,6 +6,10 @@ import { FaRegStar } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { BiSolidBuildingHouse } from "react-icons/bi";
 import { IoLogOutOutline } from "react-icons/io5";
+import { MdOutlineAddHome } from "react-icons/md";
+import { BsHouseHeartFill } from "react-icons/bs";
+import { BsFillHouseDashFill } from "react-icons/bs";
+import { FaHouseCircleExclamation } from "react-icons/fa6";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useAuth from "../Hooks/useAuth";
@@ -58,7 +62,7 @@ const Dashboard = () => {
             isAdmin &&
             <>
               <li>
-                <NavLink to="/dashboard/adminProfile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Admin Profile</NavLink>
+                <NavLink to="/dashboard/profile" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Admin Profile</NavLink>
               </li>
             </>
           }
@@ -77,25 +81,25 @@ const Dashboard = () => {
               </li>
             <li>
                 <NavLink to="/dashboard/addProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
-                <GiSelfLove className="text-white text-3xl mr-3" />
+                <MdOutlineAddHome className="text-white text-3xl mr-3" />
                 Add Property
                 </NavLink>
               </li>
             <li>
                 <NavLink to="/dashboard/myAddedProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
-                <MdAttachMoney className="text-white text-3xl mr-3"/>
+                <BsHouseHeartFill className="text-white text-3xl mr-3"/>
                 My added properties
                 </NavLink>
               </li>
             <li>
                 <NavLink to="/dashboard/mySoldProperty" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
-                <FaRegStar className="text-white text-3xl mr-3"/>
+                <BsFillHouseDashFill className="text-white text-3xl mr-3"/>
                 My sold properties
                 </NavLink>
               </li>
             <li>
                 <NavLink to="/dashboard/reqProperties" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
-                <FaRegStar className="text-white text-3xl mr-3"/>
+                <FaHouseCircleExclamation className="text-white text-3xl mr-3"/>
                 Requested properties
                 </NavLink>
               </li>

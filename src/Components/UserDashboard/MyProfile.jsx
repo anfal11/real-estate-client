@@ -37,8 +37,12 @@ const MyProfile = () => {
         <div className="bg-white shadow-xl rounded-lg p-4">
           <p className="text-center font-bold text-xl lg:text-base xl:text-xl text-gray-600">Name</p>
           <p className="text-center my-6 font-bold text-xl lg:text-base xl:text-xl text-gray-600">
-            {currentUser[0]?.name}
-          </p>
+  {currentUser[0]?.name} 
+  {currentUser[0]?.role && ` (${currentUser[0]?.role})`}
+</p>
+
+
+
         </div>
         <div className="bg-white shadow-xl rounded-lg p-4">
           <p className="text-center font-bold text-xl lg:text-base xl:text-xl text-gray-600">Email</p>
