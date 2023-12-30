@@ -1,15 +1,30 @@
 import { GiHamburgerMenu } from "react-icons/gi";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const {logOut} = useAuth();
   console.log(isAdmin);
+
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      toast.success("User Logout successfully");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
 
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex items-center">
+      <div className="drawer-content">
         {/* Page content here */}
         <label htmlFor="my-drawer-2">
           <GiHamburgerMenu className="text-4xl m-4 lg:hidden" />
@@ -60,7 +75,10 @@ const Dashboard = () => {
                 <NavLink to="/properties" className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">All Properties</NavLink>
               </li>
           
-
+          <div className="divider"></div>
+          <li>
+                <button onClick={handleLogOut} className="menu text-base lg:text-2xl p-5 text-white text-center hover:bg-blue-900 hover:text-white">Logout</button>
+              </li>
         </ul>
       </div>
     </div>
