@@ -12,6 +12,10 @@ import MyProfile from "../Components/UserDashboard/MyProfile";
 import EditProfile from "../Components/UserDashboard/EditProfile";
 import MyReviews from "../Components/UserDashboard/MyReviews";
 import Wishlist from "../Components/UserDashboard/Wishlist";
+import AddProperty from "../Components/AgentDashboard/AddProperty";
+import MyAddedProperty from "../Components/AgentDashboard/MyAddedProperty";
+import MySoldProperty from "../Components/AgentDashboard/MySoldProperty";
+import RequestProperties from "../Components/AgentDashboard/RequestProperties";
 
 const Router = createBrowserRouter([
     {
@@ -60,6 +64,22 @@ const Router = createBrowserRouter([
             {
                 path: "wishlist",
                 element: <Wishlist />,
+            },
+            {
+                path: "addProperty",
+                element: <AddProperty />,
+            },
+            {
+                path: "myAddedProperty",
+                element: <MyAddedProperty />,
+            },
+            {
+                path: "mySoldProperty",
+                element: <MySoldProperty />,
+            },
+            {
+                path: "reqProperties",
+                element: <RequestProperties />,
             },
         ]
     }
