@@ -3,6 +3,8 @@ import axios from "axios";
 import useUser from "../../Hooks/useUser";
 import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 
 const MyAddedProperty = () => {
   const { users } = useUser();
@@ -102,13 +104,13 @@ const MyAddedProperty = () => {
                 to={`/dashboard/update-property/${property?._id}`}
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 mr-2"
               >
-                Update
+                <span className="flex items-center gap-1">Update <MdEdit className="text-xl" /></span>
               </NavLink>
               <button
                 onClick={() => handleDeleteProperty(property?._id)}
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
               >
-                Delete
+                 <span className="flex items-center gap-1">Delete <MdDelete className="text-xl" /></span>
               </button>
             </div>
           </div>

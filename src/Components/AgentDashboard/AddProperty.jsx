@@ -1,6 +1,7 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import useUser from "../../Hooks/useUser";
+import { MdAddComment } from "react-icons/md";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -46,7 +47,7 @@ const AddProperty = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 mb-10">
       <h1 className="text-3xl font-bold my-10 text-center">Add Property</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -173,12 +174,13 @@ const AddProperty = () => {
         </div>
         </div>
 
-        <div className="mt-6">
+        <div className="mt-6 ">
           <button
             type="submit"
             className="bg-blue-600 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700"
           >
-            Add Property
+          <span className="flex items-center gap-2">
+            Add Property <MdAddComment className="text-xl" /></span>
           </button>
         </div>
       </form>

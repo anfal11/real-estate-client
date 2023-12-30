@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { FaAngleDoubleRight } from "react-icons/fa";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -242,7 +243,7 @@ const UpdateProperty = () => {
             type="submit"
             className="bg-blue-600 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700 mb-10"
           >
-            Update Property
+             <span className="flex items-center gap-1">Update Property <FaAngleDoubleRight className="text-xl" /></span>
           </button>
         </div>
       </form>
