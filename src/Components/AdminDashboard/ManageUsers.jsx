@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ManageUsers = () => {
     const [allUsers, setAllUsers] = useState([]);
@@ -64,17 +65,44 @@ const ManageUsers = () => {
   };
 
   const handleDeleteUser = (userId) => {
-    axios.delete(`http://localhost:5000/api/v1/users/${userId}`)
-      .then((res) => {
-        // Update the user list after deleting user
-        axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
-          .then((res) => {
-            setAllUsers(res?.data);
+    // Display a confirmation dialog using SweetAlert
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this user!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // If the user confirms, proceed with the deletion
+        axios.delete(`http://localhost:5000/api/v1/users/${userId}`)
+          .then(() => {
+            // Display a success message
+            Swal.fire(
+              'Deleted!',
+              'The user has been removed.',
+              'success'
+            );
+  
+            // Update the user list after deleting user
+            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+              .then((res) => {
+                setAllUsers(res?.data);
+              });
+          })
+          .catch((error) => {
+            console.error('Error deleting user:', error);
+            // Display an error message
+            Swal.fire(
+              'Error!',
+              'An error occurred while deleting the user.',
+              'error'
+            );
           });
-      })
-      .catch((error) => {
-        console.error("Error deleting user:", error);
-      });
+      }
+    });
   };
 
   return (
@@ -111,7 +139,7 @@ const ManageUsers = () => {
                     <td className="px-6 py-4 whitespace-nowrap">{user?.email}</td>
                     <td className="px-6 py-4 font-semibold whitespace-nowrap">{user?.role}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {user?.role !== 'Admin' && (
+                      {user?.role !== 'admin' && (
                         <>
                           <button
                             onClick={() => handleMakeAdmin(user?._id)}
@@ -127,7 +155,7 @@ const ManageUsers = () => {
                           </button>
                         </>
                       )}
-                      {user?.role === 'Agent' && (
+                      {user?.role === 'agent' && (
                         <button
                           onClick={() => handleMarkFraud(user?._id)}
                           className="mr-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out"
