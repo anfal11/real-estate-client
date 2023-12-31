@@ -35,7 +35,8 @@ const WriteReview = () => {
       };
 
     return (
-        <div className="max-w-7xl mx-auto px-5 mt-48">
+        <>
+          <div className="max-w-7xl mx-auto px-5 mt-48">
             <h1 className='text-4xl font-bold text-gray-600 text-center underline'>Write an honest review</h1>
             <p className='text-center font-medium text-xl text-gray-500 my-6'>We value your feedback because it helps people a positive intension about our website.</p>
 
@@ -81,16 +82,30 @@ const WriteReview = () => {
             rows="5"
           />
         </div>
-        <button
+        {
+          !user?.email ? (
+            <button
+          type="submit"
+          className="w-full py-3 px-8 mt-3 rounded-lg bg-gray-600 text-white font-medium text-sm hover:bg-gray-500 transition duration-150 ease-in-out" disabled
+        >
+          Submit
+        </button>
+          ) 
+          :
+          <>
+          <button
           type="submit"
           className="w-full py-3 px-8 mt-3 rounded-lg bg-gray-600 text-white font-medium text-sm hover:bg-gray-500 transition duration-150 ease-in-out"
         >
           Submit
         </button>
+          </>
+        }
       </form>
 
             </div>
         </div>
+        </>
     );
 };
 

@@ -2,6 +2,7 @@ import  { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
 // AOS.init();
@@ -9,6 +10,7 @@ import toast from "react-hot-toast";
 // npm i @emailjs/browser
 
 const ContactUS = () => {
+  const {user} = useAuth();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -47,7 +49,9 @@ const ContactUS = () => {
         <input required type="email" name="user_email" />
         <label>Message</label>
         <textarea required name="message" />
-        <input id="send" type="submit" value="Send" />
+        {
+          user?.email ? <input type="submit" value="Send" /> : <input type="submit" value="Send" disabled />
+        }
       </form>
      </section>
     {/* </div> */}
