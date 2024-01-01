@@ -6,6 +6,8 @@ import Steps from "../Components/Home/Steps";
 import Testimonial from "../Components/Home/Testimonial";
 import ContactUs from "../Components/Home/ContactUs";
 import WriteReview from "../Components/Home/WriteReview";
+import About from "./About";
+
 
 
 
@@ -27,7 +29,7 @@ const Home = () => {
     <Testimonial />
     <ContactUs />
     <WriteReview />
-
+    <About />
 
     
       
