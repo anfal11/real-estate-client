@@ -11,7 +11,7 @@ import img7 from "../../assets/Banner/img7.jpg";
 const Banner = () => {
   return (
     <div className="max-w-7xl mx-auto">
-      <Carousel>
+      <Carousel interval={2000} autoPlay infiniteLoop>
         <div>
           <img src={img1} />
         </div>
