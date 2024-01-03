@@ -19,7 +19,7 @@ const AddProperty = () => {
       });
   
       const imageURL = imgbbResponse.data?.data?.url;
-      console.log('image uplaoded to imgbb', imgbbResponse?.data);
+      // console.log('image uplaoded to imgbb', imgbbResponse?.data);
       
       const data = {
         title: form.get("title"),
@@ -33,7 +33,7 @@ const AddProperty = () => {
         type: form.get("type"),
       };
 
-      console.log(data);
+      // console.log(data);
 
       await axios.post("http://localhost:5000/api/v1/properties", data);
 
