@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useAxiosSec from "../../Hooks/useAxiosSec";
 
 const ManageUsers = () => {
     const [allUsers, setAllUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const axiosSec = useAxiosSec();
     const usersPerPage = 8;
   
     useEffect(() => {
@@ -24,7 +26,7 @@ const ManageUsers = () => {
   };
 
   const handleMakeAdmin = (userId) => {
-    axios.patch(`http://localhost:5000/api/v1/users/make-admin/${userId}`)
+    axiosSec.patch(`http://localhost:5000/api/v1/users/make-admin/${userId}`)
       .then((res) => {
         // Update the user list after making admin
         axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
@@ -38,7 +40,7 @@ const ManageUsers = () => {
   };
 
   const handleMakeAgent = (userId) => {
-    axios.patch(`http://localhost:5000/api/v1/users/make-agent/${userId}`)
+    axiosSec.patch(`http://localhost:5000/api/v1/users/make-agent/${userId}`)
       .then((res) => {
         // Update the user list after making agent
         axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
@@ -51,7 +53,7 @@ const ManageUsers = () => {
       });
   };
   const handleMarkFraud = (userId) => {
-    axios.patch(`http://localhost:5000/api/v1/users/mark-fraud/${userId}`)
+    axiosSec.patch(`http://localhost:5000/api/v1/users/mark-fraud/${userId}`)
       .then((res) => {
         // Update the user list after marking fraud
         axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
