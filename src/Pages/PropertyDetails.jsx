@@ -142,6 +142,13 @@ const PropertyDetails = () => {
               <p className="mt-3 text-gray-600 text-xl font-semibold">
                 ${property?.price}
               </p>
+              <p className="mt-3 text-gray-600 text-xl font-bold">
+              Agent name: {property?.agentName}
+              </p>
+              <p className="mt-3 text-gray-600 text-xl font-bold">
+                Agent email: {property?.agentEmail}
+              </p>
+
 
               <button
                 onClick={() => window.history.back()}
