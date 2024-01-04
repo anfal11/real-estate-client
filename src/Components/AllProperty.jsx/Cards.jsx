@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 
 const Cards = ({property}) => {
-    const {_id, image, title, location, price, status, type } = property;
+    const {_id, image, title, location, price, status, type, agentName, agentEmail } = property;
     return (
         <div>
             <div className="mb-20 group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl ">
@@ -22,6 +22,12 @@ const Cards = ({property}) => {
         </p>
         <p className="mt-3 text-gray-600 font-semibold">
           ${price}
+        </p>
+        <p className="mt-3 text-gray-600 font-bold">
+        Agent name: {agentName}
+        </p>
+        <p className="mt-3 text-gray-600 font-bold">
+        Agent email: {agentEmail}
         </p>
         {
             status === 'For Sale' ? <p className="mt-3 text-gray-600 font-extrabold bg-yellow-400 w-24 p-4 text-center rounded-e-full">
@@ -56,6 +62,8 @@ Cards.propTypes = {
       price: PropTypes.number,
       status: PropTypes.string,
       type: PropTypes.string,
+      agentName: PropTypes.string,
+      agentEmail: PropTypes.string,
     }),
   };
 
