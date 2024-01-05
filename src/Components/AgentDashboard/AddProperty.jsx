@@ -2,11 +2,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import useUser from "../../Hooks/useUser";
 import { MdAddComment } from "react-icons/md";
+import { useState } from "react";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddProperty = () => {
+  const [verificationStatus, setVerificationStatus] = useState(false);
   const { users } = useUser();
 
   const handleSubmit = async (e) => {
@@ -31,6 +33,7 @@ const AddProperty = () => {
         description: form.get("description"),
         status: form.get("status"),
         type: form.get("type"),
+        verified: verificationStatus,
       };
 
       // console.log(data);

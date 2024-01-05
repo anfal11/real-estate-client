@@ -26,44 +26,86 @@ const ManageUsers = () => {
   };
 
   const handleMakeAdmin = (userId) => {
-    axiosSec.patch(`http://localhost:5000/api/v1/users/make-admin/${userId}`)
-      .then((res) => {
-        // Update the user list after making admin
-        axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
-          .then((res) => {
-            setAllUsers(res?.data);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This user will be made an admin!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, make admin!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSec.patch(`http://localhost:5000/api/v1/users/make-admin/${userId}`)
+          .then(() => {
+            Swal.fire('Success', 'User has been made admin successfully.', 'success');
+            // Update the user list after making admin
+            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+              .then((res) => {
+                setAllUsers(res?.data);
+              });
+          })
+          .catch((error) => {
+            console.error('Error making user admin:', error);
+            Swal.fire('Error', 'An error occurred while making user admin.', 'error');
           });
-      })
-      .catch((error) => {
-        console.error("Error making user admin:", error);
-      });
+      }
+    });
+  };
+  const handleMakeAgent = (userId) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This user will be made an agent!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, make agent!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSec.patch(`http://localhost:5000/api/v1/users/make-agent/${userId}`)
+          .then(() => {
+            Swal.fire('Success', 'User has been made agent successfully.', 'success');
+            // Update the user list after making agent
+            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+              .then((res) => {
+                setAllUsers(res?.data);
+              });
+          })
+          .catch((error) => {
+            console.error('Error making user agent:', error);
+            Swal.fire('Error', 'An error occurred while making user agent.', 'error');
+          });
+      }
+    });
   };
 
-  const handleMakeAgent = (userId) => {
-    axiosSec.patch(`http://localhost:5000/api/v1/users/make-agent/${userId}`)
-      .then((res) => {
-        // Update the user list after making agent
-        axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
-          .then((res) => {
-            setAllUsers(res?.data);
-          });
-      })
-      .catch((error) => {
-        console.error("Error making user agent:", error);
-      });
-  };
   const handleMarkFraud = (userId) => {
-    axiosSec.patch(`http://localhost:5000/api/v1/users/mark-fraud/${userId}`)
-      .then((res) => {
-        // Update the user list after marking fraud
-        axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
-          .then((res) => {
-            setAllUsers(res?.data);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Mark this user as fraud?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, mark as fraud!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSec.patch(`http://localhost:5000/api/v1/users/mark-fraud/${userId}`)
+          .then(() => {
+            Swal.fire('Success', 'User has been marked as fraud successfully.', 'success');
+            // Update the user list after marking fraud
+            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+              .then((res) => {
+                setAllUsers(res?.data);
+              });
+          })
+          .catch((error) => {
+            console.error('Error marking user as fraud:', error);
+            Swal.fire('Error', 'An error occurred while marking user as fraud.', 'error');
           });
-      })
-      .catch((error) => {
-        console.error("Error marking user as fraud:", error);
-      });
+      }
+    });
   };
 
   const handleDeleteUser = (userId) => {
