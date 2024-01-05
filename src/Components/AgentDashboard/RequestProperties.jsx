@@ -1,21 +1,24 @@
 import  { useState, useEffect } from 'react';
+import useAuth from '../../Hooks/useAuth';
 
 const RequestProperties = () => {
   const [offers, setOffers] = useState([]);
+  const {user} = useAuth();
 
   useEffect(() => {
     const fetchOffers = async () => {
       try {
         const response = await fetch('http://localhost:5000/api/v1/offer');
         const data = await response.json();
-        setOffers(data);
+        const dataAgent = data.filter(data => data.agentEmail === user.email);
+        setOffers(dataAgent);
       } catch (error) {
         console.error('Error fetching offers:', error);
       }
     };
 
     fetchOffers();
-  }, []); // Empty dependency array ensures the effect runs once on mount
+  }, [user.email]); // Empty dependency array ensures the effect runs once on mount
 
   const handleAccept = async (offerId) => {
     // Make a PUT request to update the offer status on the backend

@@ -70,6 +70,7 @@ const Wishlist = () => {
   const makeOffer = async () => {
     try {
       const selectedProperty = favorite.find((fav) => fav._id === offerForm.propertyId);
+      const agentEmail = selectedProperty.agentEmail;
   
       const response = await axiosSecure.post(
         "/api/v1/make-offer", 
@@ -77,6 +78,7 @@ const Wishlist = () => {
           propertyId: offerForm.propertyId,
           propertyName: selectedProperty.title,
           propertyLocation: selectedProperty.location,
+          agentEmail: agentEmail,
           offeredAmount: offerForm.offeredAmount,
           buyerName: user?.displayName
         }
