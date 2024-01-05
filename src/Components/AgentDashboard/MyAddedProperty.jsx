@@ -14,7 +14,7 @@ const MyAddedProperty = () => {
     const fetchAddedProperties = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/properties"
+          "http://localhost:5000/api/v1/admin/properties"
         );
         const filteredProperties = response.data.filter(
           (property) => property.agentEmail === users[0]?.email
@@ -85,7 +85,7 @@ const MyAddedProperty = () => {
             <p className="text-gray-600 font-bold mb-2">
               Agent: {property?.agentName}
             </p>
-            {property.verification === "verified" ? (
+            {property.verified === true ? (
               <p className="text-green-500 font-bold mb-2">
                 Verification Status: Verified
               </p>
