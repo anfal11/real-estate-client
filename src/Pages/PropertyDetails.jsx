@@ -37,6 +37,8 @@ const PropertyDetails = () => {
         title: property?.title,
         location: property?.location,
         price: property?.price,
+        agentName: property?.agentName,
+        agentEmail: property?.agentEmail,
         status: property?.status,
         type: property?.type,
         description: property?.description,

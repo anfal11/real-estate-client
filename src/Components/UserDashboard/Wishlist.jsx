@@ -69,26 +69,33 @@ const Wishlist = () => {
 
   const makeOffer = async () => {
     try {
+      const selectedProperty = favorite.find((fav) => fav._id === offerForm.propertyId);
+  
       const response = await axiosSecure.post(
         "/api/v1/make-offer", 
         {
           propertyId: offerForm.propertyId,
+          propertyName: selectedProperty.title,
+          propertyLocation: selectedProperty.location,
           offeredAmount: offerForm.offeredAmount,
+          buyerName: user?.displayName
         }
       );
+  
       console.log(response.data);
-
+  
       setOfferForm({
         propertyId: "",
         offeredAmount: "",
       });
-
+  
       Swal.fire("Offer Made!", "Your offer has been submitted.", "success");
     } catch (error) {
       console.error("Error making offer:", error);
       Swal.fire("Error", "Failed to make the offer.", "error");
     }
   };
+  
 
   return (
     <div>
@@ -124,6 +131,8 @@ const Wishlist = () => {
                 <button className="btn bg-indigo-600 text-white hover:bg-indigo-900" onClick={() =>
                 setOfferForm({
                   propertyId: fav._id,
+                  propertyName: fav.title,
+                  propertyLocation: fav.location,
                   offeredAmount: "",
                 })
               }>
