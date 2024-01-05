@@ -75,6 +75,7 @@ const ManageProperties = () => {
             <th>Agent Name</th>
             <th>Agent Email</th>
             <th>Price</th>
+            <th>NID</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -87,7 +88,7 @@ const ManageProperties = () => {
               <td>{property.agentName}</td>
               <td>{property.agentEmail}</td>
               <td>{property.price}</td>
-              <td>{property.nid}</td>
+              <td><img src={property.nid} alt="" /></td>
               <td>
   {property.verified === false && (
     <>

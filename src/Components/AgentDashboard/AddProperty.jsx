@@ -27,7 +27,7 @@ const AddProperty = () => {
         title: form.get("title"),
         location: form.get("location"),
         image: imageURL,
-        imageNID: imageURL,
+        imageNID: form.get("imageNID"),
         agentName: form.get("agentName") || users[0]?.name,
         agentEmail: form.get("agentEmail") || users[0]?.email,
         price: Number(form.get("price")),
@@ -96,9 +96,8 @@ const AddProperty = () => {
             NID Image
           </label>
           <input
-            type="file"
+            type="url"
             name="imageNID"
-            accept="image/*"
             className="border border-gray-300 p-2 w-full"
             required
           />
