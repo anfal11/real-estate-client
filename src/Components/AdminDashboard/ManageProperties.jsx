@@ -87,6 +87,7 @@ const ManageProperties = () => {
               <td>{property.agentName}</td>
               <td>{property.agentEmail}</td>
               <td>{property.price}</td>
+              <td>{property.nid}</td>
               <td>
   {property.verified === false && (
     <>
