@@ -3,11 +3,14 @@ import  { useState, useEffect } from 'react';
 import useAxiosSec from '../../Hooks/useAxiosSec';
 import useAxios from '../../Hooks/useAxios';
 import toast from 'react-hot-toast';
+import ImageViewerModal from './ImageViewerModal';
 
 const ManageProperties = () => {
   const [properties, setProperties] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
   const axiosPub = useAxios();
   const axios = useAxiosSec();
+
 
   useEffect(() => {
     // Fetch properties from the server
@@ -60,6 +63,15 @@ const ManageProperties = () => {
       })
       .catch(error => console.error('Error rejecting property:', error));
   };
+
+  const openImageViewer = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closeImageViewer = () => {
+    setSelectedImage(null);
+  };
+
   
 
   return (
@@ -88,7 +100,7 @@ const ManageProperties = () => {
               <td>{property.agentName}</td>
               <td>{property.agentEmail}</td>
               <td>{property.price}</td>
-              <td><img src={property.nid} alt="" /></td>
+              <td><img onClick={() => openImageViewer(property.nid)} className='w-96 rounded-lg' src={property.nid} alt="" /></td>
               <td>
   {property.verified === false && (
     <>
@@ -111,7 +123,11 @@ const ManageProperties = () => {
             </tr>
           ))}
         </tbody>
+        
       </table>
+      {selectedImage && (
+        <ImageViewerModal imageUrl={selectedImage} onClose={closeImageViewer} />
+      )}
     </div>
   </div>
   );
