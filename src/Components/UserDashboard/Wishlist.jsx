@@ -4,10 +4,19 @@ import axios from "axios";
 import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import Swal from "sweetalert2";
+import useAxiosSec from "../../Hooks/useAxiosSec";
+
 
 const Wishlist = () => {
   const [favorite, setFavorite] = useState([]);
   const { user } = useAuth();
+  const axiosSecure = useAxiosSec();
+
+
+  const [offerForm, setOfferForm] = useState({
+    propertyId: "",
+    offeredAmount: "",
+  });
 
   useEffect(() => {
     axios
@@ -48,6 +57,39 @@ const Wishlist = () => {
     }
   };
 
+
+  // offer 
+  const handleOfferInputChange = (e) => {
+    const { name, value } = e.target;
+    setOfferForm({
+      ...offerForm,
+      [name]: value,
+    });
+  };
+
+  const makeOffer = async () => {
+    try {
+      const response = await axiosSecure.post(
+        "/api/v1/make-offer", 
+        {
+          propertyId: offerForm.propertyId,
+          offeredAmount: offerForm.offeredAmount,
+        }
+      );
+      console.log(response.data);
+
+      setOfferForm({
+        propertyId: "",
+        offeredAmount: "",
+      });
+
+      Swal.fire("Offer Made!", "Your offer has been submitted.", "success");
+    } catch (error) {
+      console.error("Error making offer:", error);
+      Swal.fire("Error", "Failed to make the offer.", "error");
+    }
+  };
+
   return (
     <div>
       <h1 className="text-3xl text-gray-600 font-bold text-center my-16">
@@ -79,10 +121,34 @@ const Wishlist = () => {
               <p className="text-lg text-gray-600 h-52"> {fav?.description} </p>
 
               <div className="flex justify-center gap-1 md:gap-4">
-                <button className="btn bg-indigo-600 text-white hover:bg-indigo-900">
+                <button className="btn bg-indigo-600 text-white hover:bg-indigo-900" onClick={() =>
+                setOfferForm({
+                  propertyId: fav._id,
+                  offeredAmount: "",
+                })
+              }>
                   <MdOutlineLocalOffer className="md:text-2xl" />
                   Make an offer
                 </button>
+
+                     {/* Offer Form */}
+            {offerForm.propertyId === fav._id && (
+              <div className="flex flex-col gap-2">
+                <input
+                  type="number"
+                  placeholder="Offered Amount"
+                  name="offeredAmount"
+                  value={offerForm.offeredAmount}
+                  onChange={handleOfferInputChange}
+                />
+                <button
+                  className="btn bg-green-500 text-white"
+                  onClick={makeOffer}
+                >
+                  Make Offer
+                </button>
+              </div>
+            )}
                 <button className="btn bg-pink-600 text-white hover:bg-pink-900"
                 onClick={() => removeFromWishlist(fav._id)}
                 >
