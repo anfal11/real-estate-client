@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { FaCreditCard } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 
@@ -128,7 +129,11 @@ const PropertyDetails = () => {
                       onClick={addToWishlist}
                     />
                   )}
+            
                 </span>
+                <span className="btn bg-pink-500 hover:bg-pink-800 text-white text-2xl font-medium border-gray-600 ml-10 pl-2">
+                  <FaCreditCard /> Make Payment
+                  </span>
               </div>
 
               <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
