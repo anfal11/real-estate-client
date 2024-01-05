@@ -1,36 +1,43 @@
 import  { useState, useEffect } from 'react';
+// import useAxios from '../../Hooks/useAxios';
+import useAxiosSec from '../../Hooks/useAxiosSec';
 import useAxios from '../../Hooks/useAxios';
+import toast from 'react-hot-toast';
 
 const ManageProperties = () => {
   const [properties, setProperties] = useState([]);
-  const axios = useAxios();
+  const axiosPub = useAxios();
+  const axios = useAxiosSec();
 
   useEffect(() => {
     // Fetch properties from the server
-    axios.get('/api/v1/admin/properties')
+    axiosPub.get('/api/v1/admin/properties')
       .then(response => 
         {
             setProperties(response.data)
         }
         )
       .catch(error => console.error('Error fetching properties:', error));
-  }, [axios]);
+  }, [axiosPub]);
 
   const handleVerify = (propertyId) => {
     axios.patch(`/api/v1/properties/verify/${propertyId}`)
       .then(response => {
         // Update the UI if necessary
         // For example, remove the "Verify" and "Reject" buttons, show the status as "verified"
-        setProperties(prevProperties => {
-          const updatedProperties = prevProperties.map(property => {
-            if (property._id === propertyId) {
-              return { ...property, verified: true };
-            }
-            return property;
-          });
-          return updatedProperties;
-        });
-      })
+        // setProperties(prevProperties => {
+        //   const updatedProperties = prevProperties.map(property => {
+        //     if (property._id === propertyId) {
+        //       return { ...property, verified: true };
+        //     }
+        //     return property;
+        //   });
+        //   return updatedProperties;
+        // });
+        console.log(response.data);
+        toast.success("Property Approved!");
+      }
+      )
       .catch(error => console.error('Error verifying property:', error));
   };
   
@@ -39,15 +46,17 @@ const ManageProperties = () => {
       .then(response => {
         // Update the UI if necessary
         // For example, remove the "Verify" and "Reject" buttons, show the status as "rejected"
-        setProperties(prevProperties => {
-          const updatedProperties = prevProperties.map(property => {
-            if (property._id === propertyId) {
-              return { ...property, verified: false };
-            }
-            return property;
-          });
-          return updatedProperties;
-        });
+        // setProperties(prevProperties => {
+        //   const updatedProperties = prevProperties.map(property => {
+        //     if (property._id === propertyId) {
+        //       return { ...property, verified: false };
+        //     }
+        //     return property;
+        //   });
+        //   return updatedProperties;
+        // });
+        console.log(response.data);
+        toast.success("Property Rejected!");
       })
       .catch(error => console.error('Error rejecting property:', error));
   };
@@ -79,15 +88,24 @@ const ManageProperties = () => {
               <td>{property.agentEmail}</td>
               <td>{property.price}</td>
               <td>
-                {property.verified === false && (
-                  <>
-                    <button className='btn btn-ghost' onClick={() => handleVerify(property._id)}>Verify</button>
-                    <button className='btn btn-ghost' onClick={() => handleReject(property._id)}>Reject</button>
-                  </>
-                )}
-                {property.verified === true && <span>Verified</span>}
-                {property.verified === false && <span>Rejected</span>}
-              </td>
+  {property.verified === false && (
+    <>
+      <button className='btn btn-ghost' onClick={() => handleVerify(property._id)}>Verify</button>
+      <button className='btn btn-ghost' onClick={() => handleReject(property._id)}>Reject</button>
+    </>
+  )}
+  {property.verified === true && (
+    <span>
+      <button className='btn btn-ghost'>Verified</button>
+    </span>
+  )}
+  {property.verified === false && (
+    <span>
+      <button className='btn btn-ghost'>Rejected</button>
+    </span>
+  )}
+</td>
+
             </tr>
           ))}
         </tbody>
