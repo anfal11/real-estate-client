@@ -12,6 +12,26 @@ const PropertyDetails = () => {
   const [isInWishlist, setIsInWishlist] = useState(false);
   const {user } = useAuth();
   const { id } = useParams();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   address: "",
+  //   phoneNumber: "",
+  // });
+  const [paymentData, setPaymentData] = useState(null);
+
+  // console.log(formData);
+  console.log(paymentData);
+
+  const openPaymentModal = () => {
+    setIsPaymentModalOpen(true);
+  };
+
+  const closePaymentModal = () => {
+    setIsPaymentModalOpen(false);
+  };
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,6 +48,28 @@ const PropertyDetails = () => {
 
     fetchData();
   }, [id]);
+
+  const handlePay = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Set the payment data, not the form data
+      setPaymentData({
+        name: e.target.name.value,
+        address: e.target.address.value,
+        email: e.target.email.value,
+        phoneNumber: e.target.phoneNumber.value,
+        price: property?.price,
+      });
+
+      console.log("Payment submitted");
+      // If needed, you can close the payment modal here
+      // closePaymentModal();
+    } catch (error) {
+      console.error("Error processing payment:", error);
+      // Handle payment error
+    }
+  };
 
   const addToWishlist = async () => {
     try {
@@ -130,11 +172,114 @@ const PropertyDetails = () => {
                     />
                   )}
             
-                </span>
-                <span className="btn bg-pink-500 hover:bg-pink-800 text-white text-2xl font-medium border-gray-600 ml-10 pl-2">
+                </span> 
+               
+              </div>
+              <span className="my-3 btn bg-pink-500 hover:bg-pink-800 text-white text-2xl font-medium border-gray-600 pl-2" onClick={openPaymentModal}>
                   <FaCreditCard /> Make Payment
                   </span>
+
+                    {/* Payment Modal */}
+      {isPaymentModalOpen && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+          <div className="bg-white p-8 w-full max-w-md">
+            <h2 className="text-2xl font-semibold mb-4">Payment Form</h2>
+            <form onSubmit={handlePay}>
+              <div className="mb-4">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  // value={formData.name}
+                  required
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
               </div>
+              <div className="mb-4">
+                <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  // value={formData.address}
+                  required
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  // value={formData.address}
+                  required
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  // value={formData.phoneNumber}
+                  required
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                  Price
+                </label>
+                <input
+                  type="text"
+                  id="price"
+                  name="price"
+                  value={property?.price}
+                  readOnly
+                  className="mt-1 p-2 w-full border rounded-md bg-gray-100"
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn bg-pink-500 hover:bg-pink-800 text-white text-lg font-medium border-gray-600"
+              >
+                Pay
+              </button>
+        
+            </form>
+
+            <button className="btn mt-2 bg-red-400 text-white" onClick={closePaymentModal}>
+              Close
+            </button>
+           
+
+             {/* Display the collected payment data */}
+             {paymentData && (
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2">Payment Details:</h3>
+                <p>Name: {paymentData.name}</p>
+                <p>Address: {paymentData.address}</p>
+                <p>Address: {paymentData.email}</p>
+                <p>Phone Number: {paymentData.phoneNumber}</p>
+                <p>Price: ${paymentData.price}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+
 
               <span className="block mb-1 mt-3 text-3xl font-semibold uppercase text-blue-600">
                 {property?.location}
@@ -165,6 +310,8 @@ const PropertyDetails = () => {
                 Go Back{" "}
               </button>
             </div>
+
+            
           </div>
         </div>
       </section>
