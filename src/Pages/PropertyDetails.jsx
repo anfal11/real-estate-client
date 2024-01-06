@@ -18,7 +18,7 @@ const PropertyDetails = () => {
   //   address: "",
   //   phoneNumber: "",
   // });
-  const [paymentData, setPaymentData] = useState(null);
+  const [paymentData, setPaymentData] = useState({});
 
   // console.log(formData);
   console.log(paymentData);
@@ -51,10 +51,13 @@ const PropertyDetails = () => {
 
   const handlePay = async (e) => {
     e.preventDefault();
+    
 
     try {
       // Set the payment data, not the form data
       setPaymentData({
+        id: property?._id,
+        propertyName: property?.title,
         name: e.target.name.value,
         address: e.target.address.value,
         email: e.target.email.value,
@@ -63,6 +66,25 @@ const PropertyDetails = () => {
       });
 
       console.log("Payment submitted");
+
+      fetch("http://localhost:5000/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          {
+          id: property?._id,
+          propertyName: property?.title,
+          name: e.target.name.value,
+          address: e.target.address.value,
+          email: e.target.email.value,
+          phoneNumber: e.target.phoneNumber.value,
+          price: property?.price,
+        }
+        // paymentData
+        )
+      })
       // If needed, you can close the payment modal here
       // closePaymentModal();
     } catch (error) {
