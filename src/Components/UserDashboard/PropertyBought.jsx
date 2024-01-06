@@ -106,14 +106,14 @@ const roundChartData = [
       </div>
       <div className="flex gap-4 justify-center mb-2">
         <button
-          className="btn bg-yellow-500 text-white"
+          className="btn bg-yellow-500 hover:bg-yellow-900 text-white"
           onClick={() => handleButtonClick(true)}
         >
           {" "}
           Offered Property
         </button>
         <button
-          className="btn bg-green-500 text-white"
+          className="btn bg-green-500 hover:bg-green-900 text-white"
           onClick={() => handleButtonClick(false)}
         >
           Online Pay Property
