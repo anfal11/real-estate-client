@@ -20,6 +20,8 @@ import UpdateProperty from "../Components/AgentDashboard/UpdateProperty";
 import ManageProperties from "../Components/AdminDashboard/ManageProperties";
 import ManageUsers from "../Components/AdminDashboard/ManageUsers";
 import ManageReviews from "../Components/AdminDashboard/ManageReviews";
+import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
+import PaymentFail from "../Pages/Payment/PaymentFail";
 
 const Router = createBrowserRouter([
     {
@@ -46,7 +48,15 @@ const Router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register />,
-            }
+            },
+            {
+                path: "/payment/success/:tranId",
+                element: <PaymentSuccess />,
+            },
+            {
+                path: "/payment/fail/:tranId",
+                element: <PaymentFail />,
+            },
         ],
     },
     {

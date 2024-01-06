@@ -51,8 +51,7 @@ const PropertyDetails = () => {
 
   const handlePay = async (e) => {
     e.preventDefault();
-    
-
+  
     try {
       // Set the payment data, not the form data
       setPaymentData({
@@ -64,16 +63,15 @@ const PropertyDetails = () => {
         phoneNumber: e.target.phoneNumber.value,
         price: property?.price,
       });
-
+  
       console.log("Payment submitted");
-
-      fetch("http://localhost:5000/payment", {
+  
+      const response = await fetch("http://localhost:5000/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(
-          {
+        body: JSON.stringify({
           id: property?._id,
           propertyName: property?.title,
           name: e.target.name.value,
@@ -81,17 +79,19 @@ const PropertyDetails = () => {
           email: e.target.email.value,
           phoneNumber: e.target.phoneNumber.value,
           price: property?.price,
-        }
-        // paymentData
-        )
-      })
-      // If needed, you can close the payment modal here
-      // closePaymentModal();
+        }),
+      });
+  
+      const result = await response.json();
+      window.location.replace(result.url);
+      console.log(result);
+      toast.success("Redirecting to payment options page");
     } catch (error) {
       console.error("Error processing payment:", error);
       // Handle payment error
     }
   };
+  
 
   const addToWishlist = async () => {
     try {
