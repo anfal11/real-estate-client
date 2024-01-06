@@ -1,7 +1,6 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
-
 
 const MySoldProperty = () => {
   const [soldProperties, setSoldProperties] = useState([]);
@@ -13,19 +12,10 @@ const MySoldProperty = () => {
       try {
         const response = await axios.get("/api/v1/offer");
 
-        if (!response.ok) {
-          if (response.status === 404) {
-            console.log("Resource not found");
-          } else {
-            throw new Error(`Error: ${response.statusText}`);
-          }
-        }
-
-        const data = response.data;
-        console.log(data);
-        const filteredSoldProperties = data.filter(
-          (item) => item.agentMail === user.email && item.isPaid
-        );
+        const d = response.data;
+        // console.log(d);
+        const filteredSoldProperties = d.filter((item) => item.agentEmail === user.email);
+        // console.log(filteredSoldProperties);
         setSoldProperties(filteredSoldProperties);
       } catch (error) {
         console.log(error.message);
@@ -36,7 +26,7 @@ const MySoldProperty = () => {
   }, [axios, user.email]);
 
   return (
-    <div className="max-w-7xl mx-auto mt-10">
+    <div className="max-w-7xl mx-auto mt-10 px-2">
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
@@ -51,11 +41,11 @@ const MySoldProperty = () => {
           <tbody>
             {soldProperties.map((property) => (
               <tr key={property._id}>
-                <td>{property.property.title}</td>
-                <td>{property.property.location}</td>
+                <td>{property.propertyName}</td>
+                <td>{property.propertyLocation}</td>
                 <td>{property.buyerEmail}</td>
                 <td>{property.buyerName}</td>
-                <td>{property.soldPrice}</td>
+                <td>{property.offeredAmount}</td>
               </tr>
             ))}
           </tbody>
