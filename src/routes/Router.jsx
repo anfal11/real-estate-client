@@ -22,6 +22,7 @@ import ManageUsers from "../Components/AdminDashboard/ManageUsers";
 import ManageReviews from "../Components/AdminDashboard/ManageReviews";
 import PaymentSuccess from "../Pages/Payment/PaymentSuccess";
 import PaymentFail from "../Pages/Payment/PaymentFail";
+import PropertyBought from "../Components/UserDashboard/PropertyBought";
 
 const Router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const Router = createBrowserRouter([
             {
                 path: "myReviews",
                 element: <MyReviews />,
+            },
+            {
+                path: "propertyBought",
+                element: <PropertyBought />,
             },
             {
                 path: "wishlist",

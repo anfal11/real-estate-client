@@ -148,7 +148,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             <li>
-                <NavLink to="/dashboard/propertyBuy" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
+                <NavLink to="/dashboard/propertyBought" className="menu text-base lg:text-2xl p-5 text-white text-left hover:bg-blue-900 hover:text-white">
                 <MdAttachMoney className="text-white text-3xl mr-3"/>
                 Property bought
                 </NavLink>
