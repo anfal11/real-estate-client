@@ -128,6 +128,18 @@ const AddProperty = () => {
             readOnly
           />
         </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Agent Phone Number
+          </label>
+          <input
+            type="number"
+            name="number"
+            defaultValue={users[0]?.number}
+            className="border border-gray-300 p-2 w-full"
+            readOnly
+          />
+        </div>
 
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
