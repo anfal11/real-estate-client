@@ -64,9 +64,10 @@ const Router = createBrowserRouter([
         path: "dashboard",
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
+            // same for all dashboard is profile
             {
                 path: "profile",
-                element: <MyProfile />,
+                element: <MyProfile />, 
             },
             // user dashboard
             {
