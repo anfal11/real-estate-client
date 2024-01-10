@@ -86,6 +86,7 @@ const ManageProperties = () => {
             <th>Location</th>
             <th>Agent Name</th>
             <th>Agent Email</th>
+            <th>Agent Number</th>
             <th>Price</th>
             <th>NID</th>
             <th>Actions</th>
@@ -99,6 +100,7 @@ const ManageProperties = () => {
               <td>{property.location}</td>
               <td>{property.agentName}</td>
               <td>{property.agentEmail}</td>
+              <td>{property.agentNumber}</td>
               <td>{property.price}</td>
               <td><img onClick={() => openImageViewer(property.nid)} className='w-96 rounded-lg' src={property.nid} alt="" /></td>
               <td>

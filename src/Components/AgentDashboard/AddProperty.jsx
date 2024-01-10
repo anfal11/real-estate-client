@@ -30,7 +30,7 @@ const AddProperty = () => {
         imageNID: form.get("imageNID"),
         agentName: form.get("agentName") || users[0]?.name,
         agentEmail: form.get("agentEmail") || users[0]?.email,
-        agentNumber: form.get("number") || users[0]?.number,
+        agentNumber: Number(form.get("agentNumber")),
         price: Number(form.get("price")),
         description: form.get("description"),
         status: form.get("status"),
@@ -136,9 +136,7 @@ const AddProperty = () => {
           <input
             type="number"
             name="agentNumber"
-            defaultValue={users[0]?.number}
             className="border border-gray-300 p-2 w-full"
-            readOnly
           />
         </div>
 
