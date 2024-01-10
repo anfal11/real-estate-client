@@ -151,6 +151,7 @@ const Wishlist = () => {
                   name="offeredAmount"
                   value={offerForm.offeredAmount}
                   onChange={handleOfferInputChange}
+                  required
                 />
                 <button
                   className="btn bg-green-500 text-white"
