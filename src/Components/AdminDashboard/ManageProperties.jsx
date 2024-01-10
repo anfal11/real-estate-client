@@ -4,6 +4,7 @@ import useAxiosSec from '../../Hooks/useAxiosSec';
 import useAxios from '../../Hooks/useAxios';
 import toast from 'react-hot-toast';
 import ImageViewerModal from './ImageViewerModal';
+import Swal from 'sweetalert2';
 
 const ManageProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -45,7 +46,7 @@ const ManageProperties = () => {
   };
   
   const handleReject = (propertyId) => {
-    axios.patch(`/api/v1/properties/reject/${propertyId}`)
+    axios.delete(`/api/v1/properties/reject/${propertyId}`)
       .then(response => {
         // Update the UI if necessary
         // For example, remove the "Verify" and "Reject" buttons, show the status as "rejected"
@@ -58,6 +59,36 @@ const ManageProperties = () => {
         //   });
         //   return updatedProperties;
         // });
+        
+        Swal.fire({
+          title: 'Are you sure?',
+          text: 'You won\'t be able to revert this user!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // If the user confirms, proceed with the deletion
+            axios.delete(`/api/v1/properties/reject/${propertyId}`)
+              .then(() => {
+                // Display a success message
+               toast.success("Review deleted successfully");
+                
+        
+              })
+              .catch((error) => {
+                console.error('Error deleting user:', error);
+                // Display an error message
+                Swal.fire(
+                  'Error!',
+                  'An error occurred while deleting the user.',
+                  'error'
+                );
+              });
+          }
+        });
         console.log(response.data);
         toast.success("Property Rejected!");
       })
