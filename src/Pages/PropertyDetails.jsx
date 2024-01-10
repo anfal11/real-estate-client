@@ -322,6 +322,9 @@ const PropertyDetails = () => {
               <p className="mt-3 text-gray-600 text-xl font-bold">
                 Agent email: {property?.agentEmail}
               </p>
+              <p className="mt-3 text-gray-600 text-xl font-bold">
+                Agent number: {property?.agentNumber}
+              </p>
 
 
               <button
