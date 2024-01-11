@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import Cards from "../Components/AllProperty.jsx/Cards";
 import Searchbar from "../Components/AllProperty.jsx/Searchbar";
 import Sorting from "../Components/AllProperty.jsx/Sorting";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Properties = () => {
   const axios = useAxios();
@@ -15,6 +15,7 @@ const Properties = () => {
   const [sortOrder, setSortOrder] = useState("asc");
   const [priceRange, setPriceRange] = useState(600000); 
   const [searchTerm, setSearchTerm] = useState("");
+  const [payment, setPayment] = useState([]);
 
   // Function to handle sorting change
   const handleSortChange = (criteria) => {
@@ -50,6 +51,14 @@ const Properties = () => {
       return res.data;
     },
   });
+
+  // useEffect(()=> {
+  //   axios.get("/payment")
+  //   .then(res => {
+  //     console.log(res.data);
+  //     setPayment(res.data)
+  //   })
+  // },[axios])
 
   return (
     <div>
