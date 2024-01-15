@@ -62,7 +62,7 @@ const AddProperty = () => {
           <input
             type="text"
             name="title"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
@@ -74,12 +74,12 @@ const AddProperty = () => {
           <input
             type="text"
             name="location"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Property Image
           </label>
@@ -87,7 +87,7 @@ const AddProperty = () => {
             type="file"
             name="image"
             accept="image/*"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
@@ -99,7 +99,7 @@ const AddProperty = () => {
           <input
             type="url"
             name="imageNID"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
@@ -112,7 +112,7 @@ const AddProperty = () => {
             type="text"
             name="agentName"
             defaultValue={users[0]?.name}
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             readOnly
           />
         </div>
@@ -125,7 +125,7 @@ const AddProperty = () => {
             type="email"
             name="agentEmail"
             defaultValue={users[0]?.email}
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             readOnly
           />
         </div>
@@ -136,7 +136,7 @@ const AddProperty = () => {
           <input
             type="number"
             name="agentNumber"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
           />
         </div>
 
@@ -148,7 +148,7 @@ const AddProperty = () => {
           rows={5}
             type="text"
             name="description"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
@@ -160,7 +160,7 @@ const AddProperty = () => {
           <input
             type="number"
             name="price"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           />
         </div>
@@ -171,7 +171,7 @@ const AddProperty = () => {
           </label>
           <select
             name="status"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           >
             <option value="" disabled selected>
@@ -187,7 +187,7 @@ const AddProperty = () => {
           </label>
           <select
             name="type"
-            className="border border-gray-300 p-2 w-full"
+            className="border outline-none drop-shadow-lg border-gray-300 p-2 w-full"
             required
           >
             <option value="" disabled selected>
@@ -204,7 +204,7 @@ const AddProperty = () => {
         <div className="mt-6 ">
           <button
             type="submit"
-            className="bg-blue-600 text-white font-semibold px-4 py-2 rounded hover:bg-blue-700"
+            className="bg-blue-600 outline-none drop-shadow-lg text-white font-semibold px-4 py-2 rounded hover:bg-blue-700"
           >
           <span className="flex items-center gap-2">
             Add Property <MdAddComment className="text-xl" /></span>
