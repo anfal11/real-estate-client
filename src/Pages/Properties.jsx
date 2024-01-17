@@ -16,6 +16,15 @@ const Properties = () => {
   const [priceRange, setPriceRange] = useState(600000); 
   const [searchTerm, setSearchTerm] = useState("");
   const [payment, setPayment] = useState([]);
+  const [property, setProperty] = useState([]);
+
+  useEffect(() => {
+    axios.get("/payment")
+    .then(res => {
+      console.log(res.data);
+      setPayment(res.data)
+    })
+  },[axios])
 
   // Function to handle sorting change
   const handleSortChange = (criteria) => {
