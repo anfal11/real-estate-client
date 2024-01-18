@@ -13,18 +13,32 @@ const Properties = () => {
   // State variables for sorting and price range
   const [sortBy, setSortBy] = useState("price");
   const [sortOrder, setSortOrder] = useState("asc");
-  const [priceRange, setPriceRange] = useState(600000); 
+  const [priceRange, setPriceRange] = useState(600000);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("Any Location");
+  const [selectedType, setSelectedType] = useState("Any Type");
+  const [selectedStatus, setSelectedStatus] = useState("Any Status");
   const [payment, setPayment] = useState([]);
   const [property, setProperty] = useState([]);
 
   useEffect(() => {
-    axios.get("/payment")
-    .then(res => {
+    axios.get("/payment").then((res) => {
       console.log(res.data);
-      setPayment(res.data)
-    })
-  },[axios])
+      setPayment(res.data);
+    });
+  }, [axios]);
+
+  const handleLocationChange = (e) => {
+    setSelectedLocation(e.target.value);
+  };
+
+  const handleTypeChange = (e) => {
+    setSelectedType(e.target.value);
+  };
+
+  const handleStatusChange = (e) => {
+    setSelectedStatus(e.target.value);
+  };
 
   // Function to handle sorting change
   const handleSortChange = (criteria) => {
@@ -44,14 +58,29 @@ const Properties = () => {
     return orderFactor * (a[sortBy] - b[sortBy]);
   };
 
-  // Function to filter properties based on price range and search term
+  // Function to filter properties based on location, type, status, price range, and search term
   const filterProperties = (property) => {
+    const matchesLocation =
+      selectedLocation === "Any Location" ||
+      property.location === selectedLocation;
+    const matchesType =
+      selectedType === "Any Type" || property.type === selectedType;
+    const matchesStatus =
+      selectedStatus === "Any Status" || property.status === selectedStatus;
     const matchesPriceRange = property.price <= priceRange;
-    const matchesSearchTerm = property.type.toLowerCase().includes(searchTerm.toLowerCase());
-
-    return matchesPriceRange && (searchTerm === "" || matchesSearchTerm);
+    const matchesSearchTerm = property.type
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    console.log("Selected Location:", selectedLocation);
+    console.log("Property Location:", property.location);
+    return (
+      matchesLocation &&
+      matchesType &&
+      matchesStatus &&
+      matchesPriceRange &&
+      (searchTerm === "" || matchesSearchTerm)
+    );
   };
-
 
   const { data: properties = [] } = useQuery({
     queryKey: ["properties"],
@@ -78,13 +107,16 @@ const Properties = () => {
       <div className="py-32">
         <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <section className="max-w-7xl mx-auto flex justify-center">
-        <Sorting
-          handleSortChange={handleSortChange}
-          setPriceRange={setPriceRange}
-          priceRange={priceRange}
-          sortBy={sortBy}
-          sortOrder={sortOrder}
-        />
+          <Sorting
+            handleSortChange={handleSortChange}
+            setPriceRange={setPriceRange}
+            handleLocationChange={handleLocationChange}
+            handleTypeChange={handleTypeChange}
+            handleStatusChange={handleStatusChange}
+            priceRange={priceRange}
+            sortBy={sortBy}
+            sortOrder={sortOrder}
+          />
         </section>
 
         <section className="max-w-7xl mx-auto gap-4 px-4 my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
