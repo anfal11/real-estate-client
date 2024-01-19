@@ -63,7 +63,7 @@ const Wishlist = () => {
     const { name, value } = e.target;
     setOfferForm({
       ...offerForm,
-      [name]: value,
+      [name]: value,  
     });
   };
 

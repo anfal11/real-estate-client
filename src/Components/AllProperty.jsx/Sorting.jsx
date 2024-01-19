@@ -73,6 +73,9 @@ Sorting.propTypes = {
   priceRange: PropTypes.number.isRequired,
   sortBy: PropTypes.string.isRequired,
   sortOrder: PropTypes.string.isRequired,
+  handleLocationChange: PropTypes.func.isRequired,
+  handleTypeChange: PropTypes.func.isRequired,
+  handleStatusChange: PropTypes.func.isRequired,
 };
 
 export default Sorting;
