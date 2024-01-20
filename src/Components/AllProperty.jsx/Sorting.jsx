@@ -56,6 +56,7 @@ const Sorting = ({
           <option value="Apartment">Apartment</option>
           <option value="Duplex">Duplex</option>
         </select>
+        {/* Status */}
         <select className="border p-2 outline-none border-r-gray-500" onChange={handleStatusChange}>
           <option value="Any Status">Any Status</option>
           <option value="For Rent">For Rent</option>
