@@ -5,6 +5,7 @@ import { MdFavorite } from "react-icons/md";
 import { FaCreditCard } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const PropertyDetails = () => {
 
@@ -152,6 +153,9 @@ const PropertyDetails = () => {
 
   return (
     <div className="pt-28 px-10">
+          <Helmet>
+        <title>Real Estate | Details </title>
+      </Helmet>
       <section className="max-w-7xl mx-auto">
         <div>
           <h3 className="text-4xl my-10 font-semibold text-gray-600">

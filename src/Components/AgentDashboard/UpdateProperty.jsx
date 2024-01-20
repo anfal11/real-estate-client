@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { FaAngleDoubleRight } from "react-icons/fa";
+import { Helmet } from 'react-helmet-async';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -85,6 +86,9 @@ const UpdateProperty = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-4">
+          <Helmet>
+        <title>Real Estate | Update Property </title>
+      </Helmet>
       <h1 className="text-3xl font-bold my-10 text-center">Update Property</h1>
       <form onSubmit={handleSubmit}>
         {/* Property Title */}

@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import useUser from "../../Hooks/useUser";
 import { MdAddComment } from "react-icons/md";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -53,6 +54,9 @@ const AddProperty = () => {
 
   return (
     <div className="container mx-auto p-4 mb-10">
+          <Helmet>
+        <title>Real Estate | Add Property </title>
+      </Helmet>
       <h1 className="text-3xl font-bold my-10 text-center">Add Property</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { MdDownloadDone } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -67,6 +68,9 @@ const EditProfile = () => {
 
   return (
     <div className="pt-36">
+          <Helmet>
+        <title>Real Estate | Edit Profile </title>
+      </Helmet>
       {!loading ? (
         <>
           <h1 className="text-center font-bold text-3xl">Update Your Profile Here</h1>

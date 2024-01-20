@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -60,6 +61,9 @@ const Register = () => {
 
   return (
     <div>
+          <Helmet>
+        <title>Real Estate | Register </title>
+      </Helmet>
       <section className="max-w-3xl mx-auto">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

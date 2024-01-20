@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const MyReviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -19,6 +20,9 @@ const MyReviews = () => {
 
     return (
         <div>
+              <Helmet>
+        <title>Real Estate | My Reviews </title>
+      </Helmet>
             <h1 className="text-3xl text-gray-600 font-bold text-center my-16"> My Reviews: {reviews?.length} </h1>
 
             {

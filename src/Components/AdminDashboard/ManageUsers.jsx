@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAxiosSec from "../../Hooks/useAxiosSec";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
     const [allUsers, setAllUsers] = useState([]);
@@ -151,6 +152,9 @@ const ManageUsers = () => {
 
   return (
     <div className="container mx-auto px-4">
+          <Helmet>
+        <title>Real Estate | Manage Users </title>
+      </Helmet>
       <h1 className="text-3xl font-bold my-10 text-center"> Manage Users </h1>
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">

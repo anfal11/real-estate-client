@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { NavLink } from "react-router-dom";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const MyAddedProperty = () => {
   const { users } = useUser();
@@ -57,6 +58,9 @@ const MyAddedProperty = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-4">
+          <Helmet>
+        <title>Real Estate | My added properties </title>
+      </Helmet>
       <h1 className="text-3xl font-bold my-10 text-center">
         My Added Properties
       </h1>

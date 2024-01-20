@@ -5,6 +5,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { MdOutlineLocalOffer } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSec from "../../Hooks/useAxiosSec";
+import { Helmet } from "react-helmet-async";
 
 
 const Wishlist = () => {
@@ -101,6 +102,9 @@ const Wishlist = () => {
 
   return (
     <div>
+          <Helmet>
+        <title>Real Estate | Wishlist </title>
+      </Helmet>
       <h1 className="text-3xl text-gray-600 font-bold text-center my-16">
         {" "}
         My Wishlists: {favorite?.length}

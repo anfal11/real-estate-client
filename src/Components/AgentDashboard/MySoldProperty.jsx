@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
+import { Helmet } from "react-helmet-async";
 
 const MySoldProperty = () => {
   const [soldProperties, setSoldProperties] = useState([]);
@@ -61,6 +62,9 @@ const MySoldProperty = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-10 px-2">
+          <Helmet>
+        <title>Real Estate | My sold properties </title>
+      </Helmet>
      <h1 className="text-4xl font-bold text-center text-gray-500">My Sold Properties</h1>
           <div className="flex gap-4 justify-center my-4">
         <button

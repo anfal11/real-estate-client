@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../Hooks/useAuth";
 import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -82,6 +83,9 @@ const roundChartData = [
 
   return (
     <div className="max-w-7xl mx-auto my-10">
+          <Helmet>
+        <title>Real Estate | Property Bought </title>
+      </Helmet>
     <h1 className="text-4xl font-bold text-center text-gray-500">Property Bought</h1>
        <div className="my-12 mx-4 flex flex-col md:flex-row gap-2">
    <ResponsiveContainer className="my-20" width="100%" height={400}>

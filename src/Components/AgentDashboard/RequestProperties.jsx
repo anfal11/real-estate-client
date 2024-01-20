@@ -2,6 +2,7 @@ import  { useState, useEffect } from 'react';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSec from '../../Hooks/useAxiosSec';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const RequestProperties = () => {
   const [offers, setOffers] = useState([]);
@@ -61,6 +62,9 @@ const RequestProperties = () => {
 
   return (
     <div className='max-w-7xl mx-auto'>
+          <Helmet>
+        <title>Real Estate | Requested properties </title>
+      </Helmet>
     <h1 className="text-3xl text-gray-600 font-bold text-center my-16">
         {" "}
         Requested Properties

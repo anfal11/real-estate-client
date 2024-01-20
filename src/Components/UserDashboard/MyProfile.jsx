@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { FaRegEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const MyProfile = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -25,6 +26,9 @@ const MyProfile = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
+          <Helmet>
+        <title>Real Estate | My Profile </title>
+      </Helmet>
       <p className="text-center font-bold my-10 text-base md:text-2xl lg:text-3xl text-gray-600">
         This is {currentUser[0]?.name}&apos;s Profile
       </p>

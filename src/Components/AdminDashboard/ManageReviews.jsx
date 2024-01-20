@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const ManageReviews = () => {
     const [review, setReview] = useState([]);
@@ -68,6 +69,9 @@ const ManageReviews = () => {
       };
     return (
         <div className="max-w-7xl mx-auto mt-10 px-2">
+              <Helmet>
+        <title>Real Estate | Manage Reviews </title>
+      </Helmet>
              <h1 className="text-4xl font-bold my-16 text-center text-gray-500">Review Management</h1> 
 
                <div className="overflow-x-auto">

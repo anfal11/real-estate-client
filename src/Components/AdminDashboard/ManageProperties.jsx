@@ -5,6 +5,7 @@ import useAxios from '../../Hooks/useAxios';
 import toast from 'react-hot-toast';
 import ImageViewerModal from './ImageViewerModal';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageProperties = () => {
   const [properties, setProperties] = useState([]);
@@ -107,6 +108,9 @@ const ManageProperties = () => {
 
   return (
     <div className='max-w-7xl mx-auto px-10 mt-20'>
+          <Helmet>
+        <title>Real Estate | Manage Property </title>
+      </Helmet>
     <h1 className="text-3xl font-bold my-10 text-center">Manage Properties</h1>
     <div className="overflow-x-auto">
       <table className="table table-md">
