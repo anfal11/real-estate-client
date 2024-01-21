@@ -16,6 +16,8 @@ const Register = () => {
     const form = new FormData(e.currentTarget);
 
     const name = form.get('name');
+    const role = form.get('role');
+    const number = form.get('number');
     const email = form.get('email');
     const password = form.get('password');
     const image = form.get('image');
@@ -35,6 +37,8 @@ const Register = () => {
         'http://localhost:5000/api/v1/users',
         {
           name,
+          role,
+          number,
           email,
           image: imageURL, 
         }
@@ -83,6 +87,17 @@ const Register = () => {
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                     placeholder="username"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900">User role</label>
+                  <input
+                    type="text"
+                    name="role"
+                    id="role"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                    placeholder="ex: user /agent / admin"
                     required
                   />
                 </div>
