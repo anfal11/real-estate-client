@@ -50,7 +50,7 @@ const Register = () => {
         const createUserResponse = await createUser(email, password);
         const userUpdateProfileResponse = await userUpdateProfile(name, imageURL, email);
 
-        toast.success('User successfully created');
+        toast.success('User successfully  registered.');
         navigate('/login');
       }
     } catch (error) {
