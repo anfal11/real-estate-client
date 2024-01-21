@@ -3,14 +3,12 @@ import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
 import {
   GoogleAuthProvider,
-  PhoneAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signInWithPhoneNumber,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -57,14 +55,6 @@ const AuthProvider = ({ children }) => {
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
-  };
-
-  const phoneAuthProvider = new PhoneAuthProvider(auth);
-
-  // Add phone authentication methods
-  const signInWithPhone = (phoneNumber, appVerifier) => {
-    setLoading(true);
-    return signInWithPhoneNumber(auth, phoneNumber, appVerifier);
   };
 
   const googleProvider = new GoogleAuthProvider();
@@ -117,7 +107,6 @@ const AuthProvider = ({ children }) => {
     loading,
     userUpdateProfile,
     resetPassword,
-    signInWithPhone,
   };
 
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;

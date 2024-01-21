@@ -8,7 +8,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
-  const { createUser, userUpdateProfile } = useAuth();
+  const { createUser, userUpdateProfile} = useAuth();
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -23,6 +23,7 @@ const Register = () => {
     const image = form.get('image');
 
     console.log(image, name, email, password);
+    
 
     const imgbbResponse = await axios.post(image_hosting_api, form, {
       headers: { 'Content-Type': 'multipart/form-data' },
