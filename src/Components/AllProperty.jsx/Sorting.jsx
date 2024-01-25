@@ -37,7 +37,7 @@ const Sorting = ({
         {/* location */}
         <select className="border p-2 outline-none border-r-gray-500" onChange={handleLocationChange}>
           <option value="Any Location">Any Location</option>
-          <option value="Bogura">Naogaon</option>
+          <option value="Naogaon">Naogaon</option>
           <option value="Bogura">Bogura</option>
           <option value="Uttara">Uttara</option>
           <option value="Dhanmondi">Dhanmondi</option>
