@@ -16,7 +16,7 @@ const EditProfile = () => {
   const { loading } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/users/${id}`)
+    fetch(`https://real-estate-server-xi.vercel.app/api/v1/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProfile(data);
@@ -53,7 +53,7 @@ const EditProfile = () => {
       }
 
       const res = await axios.put(
-        "http://localhost:5000/api/v1/users",
+        "https://real-estate-server-xi.vercel.app/api/v1/users",
         updateData
       );
 

@@ -31,7 +31,7 @@ const MySoldProperty = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/payment");
+        const response = await fetch("https://real-estate-server-xi.vercel.app/payment");
 
         // if (!response.ok) {
         //   if (response.status === 404) {

@@ -11,7 +11,7 @@ const RequestProperties = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/v1/offer');
+        const response = await fetch('https://real-estate-server-xi.vercel.app/api/v1/offer');
         const data = await response.json();
         const dataAgent = data.filter(data => data.agentEmail === user.email);
         setOffers(dataAgent);

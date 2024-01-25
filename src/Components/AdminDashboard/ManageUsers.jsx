@@ -11,7 +11,7 @@ const ManageUsers = () => {
     const usersPerPage = 8;
   
     useEffect(() => {
-      axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+      axios.get(`https://real-estate-server-xi.vercel.app/api/v1/users?page=${currentPage}`)
         .then((res) => {
           setAllUsers(res?.data);
         });
@@ -37,11 +37,11 @@ const ManageUsers = () => {
       confirmButtonText: 'Yes, make admin!',
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSec.patch(`http://localhost:5000/api/v1/users/make-admin/${userId}`)
+        axiosSec.patch(`https://real-estate-server-xi.vercel.app/api/v1/users/make-admin/${userId}`)
           .then(() => {
             Swal.fire('Success', 'User has been made admin successfully.', 'success');
             // Update the user list after making admin
-            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+            axios.get(`https://real-estate-server-xi.vercel.app/api/v1/users?page=${currentPage}`)
               .then((res) => {
                 setAllUsers(res?.data);
               });
@@ -64,11 +64,11 @@ const ManageUsers = () => {
       confirmButtonText: 'Yes, make agent!',
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSec.patch(`http://localhost:5000/api/v1/users/make-agent/${userId}`)
+        axiosSec.patch(`https://real-estate-server-xi.vercel.app/api/v1/users/make-agent/${userId}`)
           .then(() => {
             Swal.fire('Success', 'User has been made agent successfully.', 'success');
             // Update the user list after making agent
-            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+            axios.get(`https://real-estate-server-xi.vercel.app/api/v1/users?page=${currentPage}`)
               .then((res) => {
                 setAllUsers(res?.data);
               });
@@ -92,11 +92,11 @@ const ManageUsers = () => {
       confirmButtonText: 'Yes, mark as fraud!',
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSec.patch(`http://localhost:5000/api/v1/users/mark-fraud/${userId}`)
+        axiosSec.patch(`https://real-estate-server-xi.vercel.app/api/v1/users/mark-fraud/${userId}`)
           .then(() => {
             Swal.fire('Success', 'User has been marked as fraud successfully.', 'success');
             // Update the user list after marking fraud
-            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+            axios.get(`https://real-estate-server-xi.vercel.app/api/v1/users?page=${currentPage}`)
               .then((res) => {
                 setAllUsers(res?.data);
               });
@@ -122,7 +122,7 @@ const ManageUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // If the user confirms, proceed with the deletion
-        axios.delete(`http://localhost:5000/api/v1/users/${userId}`)
+        axios.delete(`https://real-estate-server-xi.vercel.app/api/v1/users/${userId}`)
           .then(() => {
             // Display a success message
             Swal.fire(
@@ -132,7 +132,7 @@ const ManageUsers = () => {
             );
   
             // Update the user list after deleting user
-            axios.get(`http://localhost:5000/api/v1/users?page=${currentPage}`)
+            axios.get(`https://real-estate-server-xi.vercel.app/api/v1/users?page=${currentPage}`)
               .then((res) => {
                 setAllUsers(res?.data);
               });

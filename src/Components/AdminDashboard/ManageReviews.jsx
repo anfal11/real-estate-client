@@ -33,7 +33,7 @@ const ManageReviews = () => {
         }).then((result) => {
           if (result.isConfirmed) {
             // If the user confirms, proceed with the deletion
-            axios.delete(`http://localhost:5000/api/v1/review/${id}`)
+            axios.delete(`https://real-estate-server-xi.vercel.app/api/v1/review/${id}`)
               .then(() => {
                 // Display a success message
                toast.success("Review deleted successfully");

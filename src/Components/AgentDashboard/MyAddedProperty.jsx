@@ -15,7 +15,7 @@ const MyAddedProperty = () => {
     const fetchAddedProperties = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/admin/properties"
+          "https://real-estate-server-xi.vercel.app/api/v1/admin/properties"
         );
         const filteredProperties = response.data.filter(
           (property) => property.agentEmail === users[0]?.email
@@ -42,7 +42,7 @@ const MyAddedProperty = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/api/v1/properties/${_id}`);
+        await axios.delete(`https://real-estate-server-xi.vercel.app/api/v1/properties/${_id}`);
 
         // Remove the property from the local state
         setAddedProperties((prevProperties) =>

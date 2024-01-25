@@ -12,7 +12,7 @@ const Testimonial = () => {
     const [testimonials, setTestimonials] = useState([]);
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/v1/review");
+        const response = await fetch("https://real-estate-server-xi.vercel.app/api/v1/review");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }

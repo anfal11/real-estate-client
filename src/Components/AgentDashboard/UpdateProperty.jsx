@@ -19,7 +19,7 @@ const UpdateProperty = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/properties/${id}`);
+        const response = await axios.get(`https://real-estate-server-xi.vercel.app/api/v1/properties/${id}`);
         setProperty(response.data);
       } catch (error) {
         console.error('Error fetching property details:', error);
@@ -72,7 +72,7 @@ const UpdateProperty = () => {
 
  
   
-      const res = await axios.put(`http://localhost:5000/api/v1/properties/${id}`, updatedData);
+      const res = await axios.put(`https://real-estate-server-xi.vercel.app/api/v1/properties/${id}`, updatedData);
       if (res?.data?.modifiedCount > 0) {
         toast.success('Property updated successfully!');
         navigate('/dashboard/myAddedProperty')

@@ -14,7 +14,7 @@ const useUser = () => {
 
             try {
                 const response = await fetch(
-                    `http://localhost:5000/api/v1/users`
+                    `https://real-estate-server-xi.vercel.app/api/v1/users`
                 );
                 const data = await response.json();
                 const filteredData = data.filter((item) => item.email === user?.email);

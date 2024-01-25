@@ -21,7 +21,7 @@ const Wishlist = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/wishlist")
+      .get("https://real-estate-server-xi.vercel.app/api/v1/wishlist")
       .then((res) => {
         const filterFavorite = res.data?.filter(
           (r) => r?.email === user?.email
@@ -48,7 +48,7 @@ const Wishlist = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/api/v1/wishlist/${propertyId}`);
+        await axios.delete(`https://real-estate-server-xi.vercel.app/api/v1/wishlist/${propertyId}`);
         const updatedFavorite = favorite.filter((fav) => fav._id !== propertyId);
         setFavorite(updatedFavorite);
         Swal.fire("Deleted!", "Your property has been deleted.", "success");

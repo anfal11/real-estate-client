@@ -59,7 +59,7 @@ const Login = () => {
         const email = user?.email;
         const image = user?.photoURL;
         const userInfo = {name, email, image};
-        axios.post('http://localhost:5000/api/v1/users', userInfo)
+        axios.post('https://real-estate-server-xi.vercel.app/api/v1/users', userInfo)
         .then(() => {
           toast.success("User successfully logged in");
           navigate(location?.state ? location.state : "/");

@@ -11,7 +11,7 @@ const MyProfile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/v1/users`);
+        const response = await fetch(`https://real-estate-server-xi.vercel.app/api/v1/users`);
         const data = await response.json();
         const filteredData = data.filter((item) => item.email === user?.email);
         setCurrentUser(filteredData);

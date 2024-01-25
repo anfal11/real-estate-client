@@ -15,7 +15,7 @@ const WriteReview = () => {
         const review = { name, email, message, photoURL: user?.photoURL };
     
         
-        fetch('http://localhost:5000/api/v1/review', {
+        fetch('https://real-estate-server-xi.vercel.app/api/v1/review', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

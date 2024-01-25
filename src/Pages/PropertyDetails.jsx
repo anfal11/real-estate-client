@@ -37,7 +37,7 @@ const PropertyDetails = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/properties/${id}`
+          `https://real-estate-server-xi.vercel.app/api/v1/properties/${id}`
         );
         const data = await response.json();
         setProperty(data);
@@ -67,7 +67,7 @@ const PropertyDetails = () => {
   
       console.log("Payment submitted");
   
-      const response = await fetch("http://localhost:5000/payment", {
+      const response = await fetch("https://real-estate-server-xi.vercel.app/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -110,7 +110,7 @@ const PropertyDetails = () => {
         description: property?.description,
       };
   
-      await fetch(`http://localhost:5000/api/v1/wishlist`, {
+      await fetch(`https://real-estate-server-xi.vercel.app/api/v1/wishlist`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +134,7 @@ const PropertyDetails = () => {
         return;
       }
   
-      await fetch(`http://localhost:5000/api/v1/wishlist/${propertyId}`, {
+      await fetch(`https://real-estate-server-xi.vercel.app/api/v1/wishlist/${propertyId}`, {
         method: "DELETE",
       });
   

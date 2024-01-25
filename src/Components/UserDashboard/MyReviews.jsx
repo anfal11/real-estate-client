@@ -8,7 +8,7 @@ const MyReviews = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/v1/review")
+        axios.get("https://real-estate-server-xi.vercel.app/api/v1/review")
             .then((res) => {
                 const filteredReviews = res.data?.filter((r) => r?.email === user?.email);
                 setReviews(filteredReviews);

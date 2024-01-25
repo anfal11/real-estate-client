@@ -41,7 +41,7 @@ const AddProperty = () => {
 
       // console.log(data);
 
-      await axios.post("http://localhost:5000/api/v1/properties", data);
+      await axios.post("https://real-estate-server-xi.vercel.app/api/v1/properties", data);
 
       toast.success("Property added successfully!");
       e.target.reset();
